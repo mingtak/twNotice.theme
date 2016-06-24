@@ -1,0 +1,86 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="twNotice.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+portal = api.portal.get()
+?>
+
+
+<section class="content">
+
+      <!--
+
+      LayerSlider start
+
+      //-->
+      <section class="envor-section envor-home-slider">
+        <div id="layerslider" class="envor-layerslider" style="height: 500px;">
+          <!--LayerSlider layer-->
+          <div tal:repeat="hero context/heros"
+               class="ls-layer" style="transition3d: 1,4,5,11; transition2d: 2,8,30;">
+            <!--LayerSlider background-->
+            <img tal:attributes="src python:hero.split('|')[0]"
+                 class="ls-bg" src="img/slider-bg.jpg" alt="layer1-background">
+            <div class="envor-layerslider-block ls-s1" style="top: 300px; left: 15px; transition2d: all; slidedelay: 6000; durationin: 1000; easingin: easeOutExpo;">
+              <h3 tal:content="python:hero.split('|')[1]">加入</h3>
+              <h2 tal:content="python:hero.split('|')[2]">今日商機王</h2>
+              <p tal:content="python:hero.split('|')[3]">讓你決勝今日，</p>
+            </div>
+          </div>
+        </div>
+      <!--
+
+      LayerSlider end
+
+      //-->
+      </section>
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+
+
+<h3>產業訊息</h3>
+<ul>
+  <li tal:repeat="news context/hotNews">
+    <img tal:attributes="src string:${news/to_object/absolute_url}/@@images/image/listing" />
+    <a tal:attributes="href news/to_object/absolute_url" tal:content="news/to_object/title"/>
+  </li>
+</ul>
+
+
+<h3>最新公告</h3>
+<tal:cpc repeat="cpc view/brain/keys">
+  <h4 tal:content="python:portal['resource']['category'][cpc].title"/>
+  <ul>
+    <li tal:repeat="item python:view.brain[cpc]">
+      <a tal:attributes="href item/getURL" tal:content="item/Title" />
+    </li>
+  </ul>
+
+</tal:cpc>
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_2" />
+
+</section>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+

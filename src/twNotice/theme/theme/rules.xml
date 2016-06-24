@@ -11,7 +11,7 @@
   <!-- Only theme front end pages -->
   <rules css:if-content="body.frontend#visual-portal-wrapper">
 
-    <theme href="index.html" />
+    <theme href="diazo.html" />
 
     <!-- Replace title with Plone's page title  -->
     <replace
@@ -39,22 +39,33 @@
       />
 
     <!-- Copy script tags from Plone head to end of body -->
-    <after
+<!--    <after
       css:content="html head script"
       css:theme-children="html body"
       />
-
+-->
     <!-- LOGO -->
     <copy
       attributes="href"
       css:content="#portal-logo"
-      css:theme=".navbar-brand"
+      css:theme="a.portal-logo"
       />
+
+    <replace
+      css:content-children="#portal-logo"
+      css:theme-children="a.portal-logo div"
+      />
+
+    <!-- Top Bar (Contact us in header) -->
+    <replace
+      css:content="div.envor-top-bar"
+      css:theme="div.envor-top-bar"
+    />
 
     <!-- PORTAL NAVIGATION -->
     <replace
       css:content-children="#portal-globalnav"
-      css:theme-children="#navbar"
+      css:theme-children="nav ul"
       />
 
     <!-- LOGIN (FOR ANONYMOUS USERS) -->
@@ -120,8 +131,8 @@
 
     <!-- CONTENT -->
     <replace
-      css:content="#content"
-      css:theme-children="#content"
+      css:content-children="section.content"
+      css:theme-children="div.envor-content"
       />
 
     <!-- FOOTER -->

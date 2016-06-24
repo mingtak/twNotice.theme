@@ -1,0 +1,156 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="twNotice.theme">
+<body>
+
+
+  <metal:row define-macro="adv_search">
+      <section class="envor-section envor-section-st2 envor-estate">      
+      
+        <div class="container">
+          <div class="row">
+          <form class="envor-estate-form" action="/adv_search" method="post">
+            <!--
+            * Property Type
+            //-->
+            <div class="col-lg-2 col-md-2 col-sm-6">
+              <p class="elabel">請選擇縣市:</p>
+              <div class="envor-estate-form-item">
+                <span class="val">不拘...</span>
+                <i class="fa fa-caret-down"></i>
+                <div class="cl"></div>
+                <div class="envor-efi-list">
+<!-- check box 縣市 -->
+                  <p><input type="checkbox" name="prop_type[]" value="house" id="prop-house"><label for="prop-house">house</label></p>
+                  <p><input type="checkbox" name="prop_type[]" value="apartment" id="prop-apartment"><label for="prop-apartment">apartment</label></p>
+                  <p><input type="checkbox" name="prop_type[]" value="townhouse" id="prop-townhouse"><label for="prop-townhouse">townhouse</label></p>
+                  <p><input type="checkbox" name="prop_type[]" value="villa" id="prop-villa"><label for="prop-villa">villa</label></p>
+                  <p><input type="checkbox" name="prop_type[]" value="land" id="prop-land"><label for="prop-land">land</label></p>
+                </div>
+              </div>
+            </div>
+            <!--
+            * Location
+            //-->
+            <div class="col-lg-2 col-md-2 col-sm-6">
+<!-- 單位，改用 type="text" -->
+              <p class="elabel">單位名稱:</p>
+              <div class="envor-estate-form-item">
+                <input type="text" name="org_name" placeholder="如 行政院...">
+              </div>
+            </div>
+            <!--
+            * Max & Min Price
+            //-->
+            <div class="col-lg-3 col-md-3 col-sm-6">
+<!-- 預算範圍 -->
+              <p class="elabel">預算範圍:</p>
+              <div class="envor-estate-form-item envor-estate-form-item-t1">
+                <input type="text" name="prop_max_price" placeholder="預算下限...">
+              </div>
+              <div class="envor-estate-form-item envor-estate-form-item-t2">
+                <input type="text" name="prop_min_price" placeholder="預算上限...">
+              </div>
+            </div>
+            <!--
+            * Bedrooms
+            //-->
+            <div class="col-lg-2 col-md-2 col-sm-6">
+              <p class="elabel">搜尋關鍵字:</p>
+<!-- 搜尋關鍵字，改 type="text" -->
+              <div class="envor-estate-form-item">
+                <input type="text" name="prop_max_price" placeholder="輸入標案關鍵字...">
+              </div>
+            </div>
+            <!--
+            * Bathrooms
+            //-->
+            <div class="col-lg-2 col-md-2 col-sm-6">
+              <p class="elabel">時間區間:</p>
+              <div class="envor-estate-form-item">
+<!-- 時間區間， 今日/3日/一周/本月 ，預設值3日 -->
+
+
+<select name="YourLocation" style="min-width:100%; max-width:100%">
+　<option value="today">今日</option>
+　<option value="3days" selected>3日內</option>
+　<option value="week">7日內</option>
+　<option value="month">30日內</option>
+　...
+</select>
+
+<!--                  <p><input type="" name="prop_bath[]" value="0" id="bath-0"><label for="bath-0">0</label></p> -->
+              </div>
+            </div>
+            <!--
+            * Button
+            //-->
+            <div class="col-lg-1 col-md-1 col-sm-6">
+              <p class="elabel">&nbsp;</p>
+              <input type="submit" value="Search" class="envor-btn envor-btn-secondary envor-btn-normal">
+            </div>
+          </form>
+          </div>
+        </div>
+      <!--
+
+      Property Search Form end
+
+      //-->
+      </section>
+  </metal:row>
+
+
+  <metal:row define-macro="call_to_action_1">
+      <!--
+      Call To Action start
+      //-->
+      <section class="envor-section envor-section-st1 envor-section-align-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>加入 <strong>今日商機王</strong> - 提供政府採購<span>每日分析</span> 現在加入正是時候</h2>
+              <p>最詳盡的政府採購資訊，提供每日…</p>
+              <p>
+                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 服務列表</a>
+                <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="glyphicon glyphicon-question-sign"></i> 免費試用</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <!--
+      Call To Action end
+      //-->
+      </section>
+  </metal:row>
+
+
+  <metal:row define-macro="call_to_action_2">
+      <!--
+      Call To Action #2 start
+      //-->
+      <section class="envor-section envor-section-st2 envor-section-cta2">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <p><span>滿意 <strong>今日商機王</strong> 提供的服務嗎? 別再猶豫了.</span>
+                <a href="" class="envor-btn envor-btn-normal envor-btn-border-white"><i class="glyphicon glyphicon-download"></i>
+                  立刻行動</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      <!--
+      Call To Action #2 end
+      //-->
+      </section>
+  </metal:row>
+
+
+
+</body>
+</html>

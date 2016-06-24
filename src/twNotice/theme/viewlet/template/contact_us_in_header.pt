@@ -1,0 +1,46 @@
+      <!--
+
+      Top bar start
+
+      //-->
+      <div class="envor-top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <!--
+
+              Contact information start
+
+              //-->
+              <p class="contacts"><i class="fa fa-phone"></i> 02-2897-3942</p>
+              <p class="contacts"><i class="fa fa-envelope"></i> <a href="">service@opptoday.com</a></p>
+              <!--
+
+              Contact information end
+
+              //-->
+              <!--
+
+              Social Buttons start
+
+              //-->
+              <ul class="social-btns">
+                <li><a href=""><i class="fa fa-facebook"></i></a></li>
+                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
+                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
+                <li><a href=""><i class="fa fa-rss"></i></a></li>
+              <!--
+
+              Social Buttons end
+
+              //-->
+              </ul>
+            </div>
+          </div>
+        </div>
+      <!--
+
+      Top bar end
+
+      //-->
+      </div>

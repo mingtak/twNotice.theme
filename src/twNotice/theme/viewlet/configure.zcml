@@ -1,0 +1,18 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="twNotice.theme">
+
+  <!-- Viewlet with layer -->
+  <browser:viewlet
+    name="contact_us_in_header"
+    for="*"
+    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+    template="template/contact_us_in_header.pt"
+    class=".viewlets.ContactUsInHeader"
+    permission="zope2.View"
+    layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
+    />
+
+</configure>

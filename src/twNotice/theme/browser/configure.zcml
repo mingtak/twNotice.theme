@@ -17,4 +17,15 @@
       directory="static"
       />
 
+
+  <!-- Browser with layer -->
+  <browser:page
+      name="theme_macro"
+      for="*"
+      class=".views.ThemeMacro"
+      template="template/theme_macro.pt"
+      permission="zope2.View"
+      layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
+      />
+
 </configure>

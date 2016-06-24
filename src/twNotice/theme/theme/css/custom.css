@@ -1,0 +1,22 @@
+.fa {
+    line-height: 40px;
+}
+.envor-layerslider .envor-layerslider-block h3 {
+        font-size: 18px;
+}
+.envor-layerslider .envor-layerslider-block h2 {
+        font-size: 32px;
+}
+.envor-layerslider .envor-layerslider-block p {
+        font-size: 15px;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: #666;
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #666;
+}
+
+::-webkit-input-placeholder { /* webkit, as chrom, opera 15+ */
+   color: #999;
+}
