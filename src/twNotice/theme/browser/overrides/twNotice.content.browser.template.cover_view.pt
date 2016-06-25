@@ -65,7 +65,8 @@ portal = api.portal.get()
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
-Sidebar
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
             </div>
             <!--
 
@@ -112,6 +113,26 @@ Sidebar
               //-->
               </article>
 </tal:hotnews>
+
+
+
+                <!-- 標案公告 begin -->
+
+                <h3>最新公告</h3>
+                <tal:cpc repeat="cpc view/brain/keys">
+                  <div class="col-lg-6 col-md-6">
+                    <h5 tal:content="python:portal['resource']['category'][cpc].title"
+                        style="background-color:#e14d43; line-height:30px; text-indent:10px" />
+                    <p tal:repeat="item python:view.brain[cpc]">
+                      <a tal:attributes="href item/getURL" tal:content="item/Title" />
+                    </p>
+                    <p style="float:right">
+                      <a tal:attributes="href python:portal['resource']['category'][cpc].absolute_url()">查看更多...</a>
+                    </p>
+                  </div>
+                </tal:cpc>
+                <!-- 標案公告 end -->
+
               </div>
 
 
@@ -129,29 +150,6 @@ Sidebar
 
 
 
-
-
-
-
-<h3>產業訊息</h3>
-<ul>
-  <li tal:repeat="news context/hotNews">
-    <img tal:attributes="src string:${news/to_object/absolute_url}/@@images/image/listing" />
-    <a tal:attributes="href news/to_object/absolute_url" tal:content="news/to_object/title"/>
-  </li>
-</ul>
-
-
-<h3>最新公告</h3>
-<tal:cpc repeat="cpc view/brain/keys">
-  <h4 tal:content="python:portal['resource']['category'][cpc].title"/>
-  <ul>
-    <li tal:repeat="item python:view.brain[cpc]">
-      <a tal:attributes="href item/getURL" tal:content="item/Title" />
-    </li>
-  </ul>
-
-</tal:cpc>
 
 
       <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_2" />

@@ -131,14 +131,14 @@
 
     <!-- CONTENT -->
     <replace
-      css:content-children="section.content"
+      css:content-children=".content"
       css:theme-children="div.envor-content"
       />
 
     <!-- FOOTER -->
     <replace
-      css:content="#portal-siteactions"
-      css:theme-children="footer"
+      css:content-children="#portal-footer-wrapper"
+      css:theme="footer"
       />
 
   </rules>
