@@ -20,3 +20,39 @@
 ::-webkit-input-placeholder { /* webkit, as chrom, opera 15+ */
    color: #999;
 }
+
+.envor-estate-form .envor-estate-form-item input[type=number] {
+	padding: 0px 10px;
+	float: left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	border: 0px solid #f00;
+	min-width: 100% !important;
+	width: 100% !important;
+}
+
+input[type=number],
+select, textarea {
+	min-width: 200px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	line-height: 250%;
+	padding: 0px 10px;
+	height: 34px;
+	border-radius: 3px;
+	float: left;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	transition-style: linear;
+	transition-duration: 0.2s;
+}
+
+.envor-post-masonry {
+  width:33%;
+}
+
+.envor-post header h3 {
+  padding-left: 0px;
+}

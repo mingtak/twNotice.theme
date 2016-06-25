@@ -15,79 +15,60 @@
           <div class="row">
           <form class="envor-estate-form" action="/adv_search" method="post">
             <!--
-            * Property Type
+            * 搜尋關鍵字
             //-->
-            <div class="col-lg-2 col-md-2 col-sm-6">
-              <p class="elabel">請選擇縣市:</p>
+            <div class="col-lg-3 col-md-3 col-sm-6">
+              <p class="elabel">搜尋關鍵字:</p>
               <div class="envor-estate-form-item">
-                <span class="val">不拘...</span>
-                <i class="fa fa-caret-down"></i>
-                <div class="cl"></div>
-                <div class="envor-efi-list">
-<!-- check box 縣市 -->
-                  <p><input type="checkbox" name="prop_type[]" value="house" id="prop-house"><label for="prop-house">house</label></p>
-                  <p><input type="checkbox" name="prop_type[]" value="apartment" id="prop-apartment"><label for="prop-apartment">apartment</label></p>
-                  <p><input type="checkbox" name="prop_type[]" value="townhouse" id="prop-townhouse"><label for="prop-townhouse">townhouse</label></p>
-                  <p><input type="checkbox" name="prop_type[]" value="villa" id="prop-villa"><label for="prop-villa">villa</label></p>
-                  <p><input type="checkbox" name="prop_type[]" value="land" id="prop-land"><label for="prop-land">land</label></p>
-                </div>
+                <input type="text" name="keyword" placeholder="輸入標案關鍵字...">
               </div>
             </div>
             <!--
-            * Location
+            * 搜尋關鍵字
             //-->
-            <div class="col-lg-2 col-md-2 col-sm-6">
-<!-- 單位，改用 type="text" -->
+            <!--
+            * 單位
+            //-->
+            <div class="col-lg-3 col-md-3 col-sm-6">
               <p class="elabel">單位名稱:</p>
               <div class="envor-estate-form-item">
                 <input type="text" name="org_name" placeholder="如 行政院...">
               </div>
             </div>
             <!--
-            * Max & Min Price
+            * 單位
+            //-->
+            <!--
+            * 預算範圍
             //-->
             <div class="col-lg-3 col-md-3 col-sm-6">
-<!-- 預算範圍 -->
               <p class="elabel">預算範圍:</p>
               <div class="envor-estate-form-item envor-estate-form-item-t1">
-                <input type="text" name="prop_max_price" placeholder="預算下限...">
+                <input type="number" step="100000" min="0" name="min_budget" placeholder="預算下限...">
               </div>
               <div class="envor-estate-form-item envor-estate-form-item-t2">
-                <input type="text" name="prop_min_price" placeholder="預算上限...">
+                <input type="number" step="100000" min="0" name="max_budget" placeholder="預算上限...">
               </div>
             </div>
             <!--
-            * Bedrooms
+            * 預算範圍
             //-->
-            <div class="col-lg-2 col-md-2 col-sm-6">
-              <p class="elabel">搜尋關鍵字:</p>
-<!-- 搜尋關鍵字，改 type="text" -->
-              <div class="envor-estate-form-item">
-                <input type="text" name="prop_max_price" placeholder="輸入標案關鍵字...">
-              </div>
-            </div>
             <!--
-            * Bathrooms
+            * 時間區間
             //-->
             <div class="col-lg-2 col-md-2 col-sm-6">
               <p class="elabel">時間區間:</p>
               <div class="envor-estate-form-item">
-<!-- 時間區間， 今日/3日/一周/本月 ，預設值3日 -->
-
-
-<select name="YourLocation" style="min-width:100%; max-width:100%">
-　<option value="today">今日</option>
-　<option value="3days" selected>3日內</option>
-　<option value="week">7日內</option>
-　<option value="month">30日內</option>
-　...
-</select>
-
-<!--                  <p><input type="" name="prop_bath[]" value="0" id="bath-0"><label for="bath-0">0</label></p> -->
+                <select name="YourLocation" style="min-width:100%; max-width:100%">
+                　<option value="today">今日</option>
+                  <option value="3days" selected>3日內</option>
+                　<option value="week">7日內</option>
+                　<option value="month">30日內</option>
+                </select>
               </div>
             </div>
             <!--
-            * Button
+            * 時間區間
             //-->
             <div class="col-lg-1 col-md-1 col-sm-6">
               <p class="elabel">&nbsp;</p>

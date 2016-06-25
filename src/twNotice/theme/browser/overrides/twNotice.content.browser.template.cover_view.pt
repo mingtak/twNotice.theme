@@ -52,6 +52,87 @@ portal = api.portal.get()
       <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
 
 
+
+
+
+
+      <!--
+
+      Main Content start
+
+      //-->
+      <section class="envor-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+Sidebar
+            </div>
+            <!--
+
+            Content Section start
+
+            //-->
+            <div class="col-lg-9">
+
+<h3>產業訊息</h3>
+
+
+              <div id="envor-posts-masonry">
+              <!--
+
+              Post start
+
+              //-->
+<tal:hotnews tal:repeat="item context/hotNews">
+              <article class="envor-post envor-post-masonry">
+                <div class="inner">
+                <figure>
+                  <a tal:attributes="href string:${item/to_object/absolute_url}/@@images/image/large.png"
+                     class="colorbox">
+                    <img tal:attributes="src string:${item/to_object/absolute_url}/@@images/image/preview; alt item/to_object/title">
+                  </a>
+                  <figcaption>
+                    <a tal:attributes="href string:${item/to_object/absolute_url}/@@images/image/large.png;
+                                       title item/to_object/title"
+                       class="colorbox"><i class="fa fa-plus"></i></a></figcaption>
+                </figure>
+
+                <header>
+                  <h3><!-- <i class="fa fa-pencil"></i> -->
+                      <a tal:attributes="href item/to_object/absolute_url" tal:content="item/to_object/title">Title</a></h3>
+                  <p>更新日期: <strong tal:content="python:item.to_object.created().strftime('%Y/%m/%d')">24 Apr, 2014</strong></p>
+                </header>
+                <p tal:content="item/to_object/description"></p>
+                <p><a tal:attributes="href item/to_object/absolute_url" class="envor-btn envor-btn-small envor-btn-secondary-border">全文閱讀 <i class="fa fa-arrow-circle-right"></i></a></p>
+                </div>
+              <!--
+
+              Post end
+
+              //-->
+              </article>
+</tal:hotnews>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+
+      Main Content start
+
+      //-->
+      </section>
+
+
+
+
+
+
+
+
 <h3>產業訊息</h3>
 <ul>
   <li tal:repeat="news context/hotNews">
