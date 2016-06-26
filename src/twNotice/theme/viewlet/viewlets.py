@@ -31,6 +31,9 @@ class CountDown(base.ViewletBase):
         except:
             return None
 
+        if DateTime('%s/%s/%s %s:%s' % (result['year'], result['month'], result['day'], result['hour'], result['minute'])) < DateTime():
+            return None
+
         return result
 
 
