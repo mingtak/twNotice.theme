@@ -1,0 +1,26 @@
+<?python
+deadline = view.get_deadline()
+script_str = " \
+            $('document').ready(function() {\
+          var $container = $('body');\
+          $container.imagesLoaded( function() {\
+        $('#riva-countdown').rivaCountdown({\
+          year : %s,\
+          month : %s,\
+          date : %s,\
+          hour : %s,\
+          minute : %s,\
+          second : 0,\
+        });\
+            $('#envor-preload').hide();\
+       });\
+      });" % (deadline['year'], deadline['month'], deadline['day'], deadline['hour'], deadline['minute'])
+?>
+
+<div class="count_down_for_notice"
+     tal:condition="deadline">
+
+    <script type="text/javascript" tal:content="script_str">
+    </script>
+
+</div>

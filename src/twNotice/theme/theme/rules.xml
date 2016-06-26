@@ -141,6 +141,11 @@
       css:theme="footer"
       />
 
+    <!-- Count Down for Notice -->
+    <after
+      css:content-children="div.count_down_for_notice"
+      css:theme-children="body"
+      />
   </rules>
 
 </rules>

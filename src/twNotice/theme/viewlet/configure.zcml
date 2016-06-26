@@ -15,4 +15,14 @@
     layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
     />
 
+  <browser:viewlet
+    name="count_down"
+    for="twNotice.content.interfaces.INotice"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    template="template/count_down.pt"
+    class=".viewlets.CountDown"
+    permission="zope2.View"
+    layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
+    />
+
 </configure>
