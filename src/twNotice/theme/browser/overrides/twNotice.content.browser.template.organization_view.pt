@@ -15,7 +15,6 @@
 
 
 <section class="content">
-<p tal:content="python:view.get_info_at_year(2016)">
       <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
       <!--
       Main Content start
