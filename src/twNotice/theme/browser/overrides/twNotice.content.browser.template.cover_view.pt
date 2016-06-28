@@ -127,7 +127,8 @@ portal = api.portal.get()
                       <a tal:attributes="href item/getURL" tal:content="item/Title" />
                     </p>
                     <p style="float:right">
-                      <a tal:attributes="href python:portal['resource']['category'][cpc].absolute_url()">查看更多...</a>
+                      <a class="envor-btn envor-btn-secondary-border envor-btn-small"
+                         tal:attributes="href python:portal['resource']['category'][cpc].absolute_url()">查看更多...</a>
                     </p>
                   </div>
                 </tal:cpc>

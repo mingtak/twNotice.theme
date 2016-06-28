@@ -12,6 +12,10 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
+<?python
+from Products.CMFPlone.utils import safe_unicode
+?>
+
 <section class="content">
       <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
       <!--
@@ -28,55 +32,12 @@
             Content Section start
             //-->
             <div class="col-lg-9">
-<h3 tal:content="context/title"/>
-
-<h5 tal:content="context/description"/>
-
-<h5>
- <strong i18n:translate="">Date String</strong>:
- <span tal:replace="context/dateString"/>
-</h5>
-
-<h5>
- <strong i18n:translate="">Related CPC</strong>:
- <a tal:attributes="href context/cpc/to_object/absolute_url"
-    tal:content="context/cpc/to_object/title"/>
-</h5>
-
-<h5>
- <strong i18n:translate="">Notice Type</strong>:
- <span tal:replace="context/noticeType"/>
-</h5>
-
-<h5>
- <strong i18n:translate="">Notice URL</strong>:
- <a tal:attributes="href context/noticeURL"
-    tal:content="context/noticeURL" target="_blank"/>
-</h5>
-
-<h5><strong i18n:translate="">Notice Metadata</strong>:</h5>
-<ul>
-  <li tal:repeat="key context/noticeMeta/keys">
-    <strong tal:content="key"/>:
-    <span tal:replace="structure python:context.noticeMeta[key]"/>
-  </li>
-</ul>
-
-
-            </div>
-          </div>
-        </div>
-      <!--
-      Main Content start
-      //-->
-      </section>
-
-
+<h2 tal:content="context/title"/>
 
             <!--
             * Counter
             //-->
-            <div class="riva-countdown" id="riva-countdown">
+            <div class="riva-countdown" id="riva-countdown" style="float:right"> <h4>距離投標截止</h4>
               <!--
               * Days
               //-->
@@ -106,6 +67,61 @@
                 <div class="label">seconds</div>
               </div>
             </div>
+
+<ul class="e-color-list"
+    tal:define="noticeInfo python:[['單位資訊', '機關名稱', '單位名稱', '機關地址', '聯絡人', '聯絡電話', '傳真號碼', '電子郵件信箱'],
+ ['標案資訊', '公告日', '標案案號', '標案名稱', '預算金額', '招標方式', '決標方式', '新增公告傳輸次數', '招標狀態'],
+ ['投標資訊', '截止投標', '收受投標文件地點', '開標時間', '開標地點', '是否須繳納押標金', '廠商資格摘要', '是否訂有與履約能力有關之基本資格', '是否訂有與履約能力有關之特定資格'],
+ ['投標結果', '投標廠商家數', '決標金額', '得標廠商'],]">
+
+
+  <tal:notice repeat="info noticeInfo">
+    <h3 tal:content="python:info[0]" />
+
+<tal:repeat repeat="item python:info[1:]">
+    <li tal:condition="python:context.noticeMeta.get(safe_unicode(item))" class="notice_info">
+        <strong><i class="glyphicon glyphicon-check"/> <span tal:replace="item"/></strong>:
+        <tal:switch switch="python:item">
+          <tal:a case="python:'機關名稱'">
+            <tal:org define="orgBrain view/get_org">
+              <a tal:condition="orgBrain" tal:attributes="href python:orgBrain.getURL()">
+                <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+              </a>
+              <span tal:condition="not:orgBrain" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+            </tal:org>
+          </tal:a>
+
+          <span tal:case="default" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+        </tal:switch>
+    </li>
+</tal:repeat>
+
+    <li tal:condition="python:info[0] == '標案資訊'" class="notice_info">
+      <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Related CPC</span></strong>:
+      <a tal:attributes="href context/cpc/to_object/absolute_url"
+        tal:content="context/cpc/to_object/title"/>
+    </li>
+
+    <li tal:condition="python:info[0] == '標案資訊'" class="notice_info">
+      <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Notice URL</span></strong>:
+      <a tal:attributes="href context/noticeURL"
+        tal:content="context/noticeURL" target="_blank"/>
+    </li>
+
+    <hr>
+  </tal:notice>
+
+</ul>
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+      Main Content start
+      //-->
+      </section>
+
 
 
 

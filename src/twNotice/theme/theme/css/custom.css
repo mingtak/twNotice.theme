@@ -60,3 +60,17 @@ select, textarea {
 .envor-footer {
     padding: 30px 0px;
 }
+
+li.notice_info {
+    font-size:1.3em;
+}
+
+.riva-countdown {
+    text-align: center;
+    width: 50%;
+    float: right;
+}
+
+.envor-header-1 .envor-header-bg .envor-logo img {
+    max-height: 55px;
+}
