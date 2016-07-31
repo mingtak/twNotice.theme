@@ -1,0 +1,120 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="twNotice.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+from Products.CMFPlone.utils import safe_unicode
+portal = api.portal.get()
+catalog = portal.portal_catalog
+?>
+
+
+<section class="content">
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <!--
+      Main Content start
+      //-->
+      <section class="envor-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+            <!--
+            Content Section start
+            //-->
+            <div class="col-lg-9">
+
+
+<h2 tal:content="context/title"/>
+
+
+<h3>商情分析</h3>
+<tal:info define="year view/get_this_year;
+                  info python:[view.get_tender_at_year(year), view.get_tender_at_year(int(year)-1)];
+                  winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)]">
+  
+
+
+<h4>機關預算執行統計</h4>
+<ul>
+  <li tal:repeat="info_year info">
+    <strong tal:content="python:year-repeat['info_year'].index"/>: <span tal:replace="python:info_year[0]" />
+  </li>
+</ul>
+
+<!--
+<h4>採購分類預算分析</h4>
+<ul tal:repeat="info_year info">
+  <strong tal:content="python:year-repeat['info_year'].index"/>:
+  <li tal:repeat="key python:info[repeat['info_year'].index][2][0]" tal:on-error="nothing">
+    <a tal:define="item python:view.get_CPC(key)"
+       tal:attributes="href item/getURL">
+      <strong tal:content="python:key"/>:
+    </a>
+    共開出 <span tal:replace="python:info[repeat['info_year'].index][2][1][repeat['key'].index]"/> 件標案 /
+    執行預算 <span tal:replace="python:info[repeat['info_year'].index][3][1][repeat['key'].index]"/>
+  </li>
+</ul>
+
+<h4>決標情況分析</h4>
+<ul tal:repeat="winner_year winner">
+  <strong tal:content="python:year-repeat['winner_year'].index"/>:
+  <li tal:repeat="key python:winner[repeat['winner_year'].index][0][0]" tal:on-error="nothing">
+
+    <strong tal:content="python:key"/>:
+       共得標 <span tal:replace="python:winner[repeat['winner_year'].index][0][1][repeat['key'].index]"/> 件標案 /
+       得標金額合計 <span tal:replace="python:winner[repeat['winner_year'].index][1][1][repeat['key'].index]"/>
+
+  </li>
+</ul>
+-->
+
+
+
+</tal:info>
+
+
+<hr>
+<h3><a tal:attributes="href string:${context/absolute_url}">近期標案</a></h3>
+
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+      Main Content start
+      //-->
+      </section>
+
+
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+</section>
+
+
+
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+

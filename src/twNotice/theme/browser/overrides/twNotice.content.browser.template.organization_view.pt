@@ -34,30 +34,17 @@
 
 <h3 tal:content="context/title"/>
 
-<h5 tal:content="context/description"/>
 
-<h5 tal:content="context/address"/>
-<h5 tal:content="context/orgCode"/>
+<h4>近期標案</h4>
+<ul>
+  <li tal:repeat="item view/get_recent">
+    <a tal:attributes="href item/getURL" tal:content="item/Title" />
+  </li>
+</ul>
 
-<h5 tal:content="context/pccOrgCode"/>
+<hr>
+<h4><a tal:attributes="href string:${context/absolute_url}/@@org_report_view">商情分析</a></h4>
 
-<h5>
-  <strong i18n:translate="">Parent Organization</strong>:
-  <a tal:attributes="href context/parentOrg/to_object/absolute_url |nothing"
-     tal:content="context/parentOrg/to_object/title | nothing" />
-</h5>
-
-<h5>
-  <strong i18n:translate="">Old Organization</strong>:
-  <a tal:attributes="href context/oldOrg/to_object/absolute_url | nothing"
-     tal:content="context/oldOrg/to_object/title | nothing" />
-</h5>
-
-<h5>
-  <strong i18n:translate="">New Organization</strong>:
-  <a tal:attributes="href context/newOrg/to_object/absolute_url | nothing"
-     tal:content="context/newOrg/to_object/title | nothing" />
-</h5>
 
 
 
