@@ -42,7 +42,7 @@ catalog = portal.portal_catalog
 
 
 <h3>商情分析</h3>
-<tal:info define="year view/get_this_year;
+<tal:info define="year python:view.get_this_year();
                   info python:[view.get_tender_at_year(year), view.get_tender_at_year(int(year)-1)];
                   winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)]">
   
