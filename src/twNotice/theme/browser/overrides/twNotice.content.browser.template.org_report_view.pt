@@ -38,61 +38,76 @@ catalog = portal.portal_catalog
             <div class="col-lg-9">
 
 
-<h2 tal:content="context/title"/>
+<tal:role switch="view/canSee">
+  <tal:case case="True">
 
 
-<h3>商情分析</h3>
-<tal:info define="year python:view.get_this_year();
-                  info python:[view.get_tender_at_year(year), view.get_tender_at_year(int(year)-1)];
-                  winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)]">
-  
+    <h2 tal:content="context/title"/>
+    <h3>商情分析</h3>
+    <tal:info define="year python:view.get_this_year();
+                      info python:[view.get_tender_at_year(year), view.get_tender_at_year(int(year)-1)];
+                      winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)]">
+
+    <h4>機關預算執行統計</h4>
+    <ul>
+      <li tal:repeat="info_year info">
+        <strong tal:content="python:year-repeat['info_year'].index"/>: <span tal:replace="python:info_year[0]" />
+      </li>
+    </ul>
+
+    <!--
+    <h4>採購分類預算分析</h4>
+    <ul tal:repeat="info_year info">
+      <strong tal:content="python:year-repeat['info_year'].index"/>:
+      <li tal:repeat="key python:info[repeat['info_year'].index][2][0]" tal:on-error="nothing">
+        <a tal:define="item python:view.get_CPC(key)"
+           tal:attributes="href item/getURL">
+          <strong tal:content="python:key"/>:
+        </a>
+        共開出 <span tal:replace="python:info[repeat['info_year'].index][2][1][repeat['key'].index]"/> 件標案 /
+        執行預算 <span tal:replace="python:info[repeat['info_year'].index][3][1][repeat['key'].index]"/>
+      </li>
+    </ul>
+
+    <h4>決標情況分析</h4>
+    <ul tal:repeat="winner_year winner">
+      <strong tal:content="python:year-repeat['winner_year'].index"/>:
+      <li tal:repeat="key python:winner[repeat['winner_year'].index][0][0]" tal:on-error="nothing">
+
+        <strong tal:content="python:key"/>:
+           共得標 <span tal:replace="python:winner[repeat['winner_year'].index][0][1][repeat['key'].index]"/> 件標案 /
+           得標金額合計 <span tal:replace="python:winner[repeat['winner_year'].index][1][1][repeat['key'].index]"/>
+
+      </li>
+    </ul>
+    -->
+
+    </tal:info>
 
 
-<h4>機關預算執行統計</h4>
-<ul>
-  <li tal:repeat="info_year info">
-    <strong tal:content="python:year-repeat['info_year'].index"/>: <span tal:replace="python:info_year[0]" />
-  </li>
-</ul>
-
-<!--
-<h4>採購分類預算分析</h4>
-<ul tal:repeat="info_year info">
-  <strong tal:content="python:year-repeat['info_year'].index"/>:
-  <li tal:repeat="key python:info[repeat['info_year'].index][2][0]" tal:on-error="nothing">
-    <a tal:define="item python:view.get_CPC(key)"
-       tal:attributes="href item/getURL">
-      <strong tal:content="python:key"/>:
-    </a>
-    共開出 <span tal:replace="python:info[repeat['info_year'].index][2][1][repeat['key'].index]"/> 件標案 /
-    執行預算 <span tal:replace="python:info[repeat['info_year'].index][3][1][repeat['key'].index]"/>
-  </li>
-</ul>
-
-<h4>決標情況分析</h4>
-<ul tal:repeat="winner_year winner">
-  <strong tal:content="python:year-repeat['winner_year'].index"/>:
-  <li tal:repeat="key python:winner[repeat['winner_year'].index][0][0]" tal:on-error="nothing">
-
-    <strong tal:content="python:key"/>:
-       共得標 <span tal:replace="python:winner[repeat['winner_year'].index][0][1][repeat['key'].index]"/> 件標案 /
-       得標金額合計 <span tal:replace="python:winner[repeat['winner_year'].index][1][1][repeat['key'].index]"/>
-
-  </li>
-</ul>
--->
+    <hr>
+    <h3><a tal:attributes="href string:${context/absolute_url}">近期標案</a></h3>
 
 
 
-</tal:info>
+
+  </tal:case>
+
+  <tal:case case="False">
+加入 今日商機王 - 提供政府採購每日分析 現在加入正是時候
+  </tal:case>
 
 
-<hr>
-<h3><a tal:attributes="href string:${context/absolute_url}">近期標案</a></h3>
+
+</tal:role>
 
 
 
             </div>
+
+
+
+
           </div>
         </div>
       <!--

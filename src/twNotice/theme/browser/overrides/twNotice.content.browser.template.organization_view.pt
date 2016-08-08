@@ -32,10 +32,10 @@
             <div class="col-lg-9">
 
 
-<h3 tal:content="context/title"/>
+<h2 tal:content="context/title"/>
 
 
-<h4>近期標案</h4>
+<h3>近期標案</h3>
 <ul>
   <li tal:repeat="item view/get_recent">
     <a tal:attributes="href item/getURL" tal:content="item/Title" />
@@ -43,7 +43,7 @@
 </ul>
 
 <hr>
-<h4><a tal:attributes="href string:${context/absolute_url}/@@org_report_view">商情分析</a></h4>
+<h3><a tal:attributes="href string:${context/absolute_url}/@@org_report_view">商情分析</a></h3>
 
 
 
