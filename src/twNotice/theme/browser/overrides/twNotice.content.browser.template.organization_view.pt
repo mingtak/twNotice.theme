@@ -43,7 +43,7 @@
 </ul>
 
 <hr>
-<h3><a tal:attributes="href string:${context/absolute_url}/@@org_report_view">商情分析</a></h3>
+<h3><a tal:attributes="href string:${context/absolute_url}/@@org_report_view">商情分析(產製報表需耗時較長，請耐心稍候)</a></h3>
 
 
 
