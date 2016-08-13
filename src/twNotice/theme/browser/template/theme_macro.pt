@@ -95,10 +95,21 @@
           <div class="row">
             <div class="col-lg-12">
               <h2>加入 <strong>今日商機王</strong> - 提供政府採購<span>每日分析</span> 現在加入正是時候</h2>
+            </div>
+            <div class="col-lg-5" style="text-align: right;">
               <p>最詳盡的政府採購資訊，提供每日…</p>
               <p>
                 <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="glyphicon glyphicon-check"></i> 服務列表</a>
                 <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="glyphicon glyphicon-question-sign"></i> 免費試用</a>
+              </p>
+            </div>
+            <div class="col-lg-7">
+              <p>會員登入 / 註冊</p>
+              <p>
+                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="fa fa-facebook"></i> Facebook</a>
+                <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="fa fa-google-plus"></i> Google</a>
+                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="fa fa-key"></i> 帳號登入</a>
+                <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="fa fa-book"></i> 註冊</a>
               </p>
             </div>
           </div>
