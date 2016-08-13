@@ -8,6 +8,10 @@ class ContactUsInHeader(base.ViewletBase):
     """  """
 
 
+class D3PieScript(base.ViewletBase):
+    """  """
+
+
 class CountDown(base.ViewletBase):
     """  """
 

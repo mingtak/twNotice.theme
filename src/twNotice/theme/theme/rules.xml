@@ -146,6 +146,13 @@
       css:content-children="div.count_down_for_notice"
       css:theme-children="body"
       />
+
+    <!-- D3 Pie Script -->
+    <after
+      css:content-children="div.d3_pie"
+      css:theme-children="body"
+      />
+
   </rules>
 
 </rules>

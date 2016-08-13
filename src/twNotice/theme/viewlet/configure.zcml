@@ -25,4 +25,14 @@
     layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
     />
 
+  <browser:viewlet
+    name="d3_pie_script"
+    for="twNotice.content.interfaces.IOrganization"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    template="template/d3_pie_script.pt"
+    class=".viewlets.D3PieScript"
+    permission="zope2.View"
+    layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
+    />
+
 </configure>
