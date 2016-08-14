@@ -1,5 +1,18 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+body {
+    color: #777;
+}
+
+.envor-post header h3 {
+    padding-left: initial;
+}
+
+.envor-post .date span.month {
+    letter-spacing: initial;
+    color: #333;
+}
+
 .fa {
     line-height: 40px;
 }
@@ -55,10 +68,6 @@ select, textarea {
   width:33%;
 }
 
-.envor-post header h3 {
-  padding-left: 0px;
-}
-
 .envor-footer {
     padding: 30px 0px;
 }
@@ -75,6 +84,12 @@ li.notice_info {
 
 .envor-header-1 .envor-header-bg .envor-logo img {
     max-height: 55px;
+}
+
+.date {
+    border: initial;
+    padding: initial;
+    text-align: initial;
 }
 
 /* D3 style */
