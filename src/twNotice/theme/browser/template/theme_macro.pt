@@ -87,6 +87,11 @@
 
 
   <metal:row define-macro="call_to_action_1">
+<?python
+from plone import api
+portal = api.portal.get()
+?>
+
       <!--
       Call To Action start
       //-->
