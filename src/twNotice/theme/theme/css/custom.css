@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+
 .fa {
     line-height: 40px;
 }
@@ -114,3 +116,14 @@ li.notice_info {
       .label {
         color:#111;
       }
+
+/* Font family */
+body, h1, h2, h3, h4, h5, h6, .entry-content, .page-title h1, .page-title h2,
+.category-title h1, .newsletter input[type="email"],
+div.blog_entry-header-inner h2, .blog_entry footer span,
+.product-overview, .std, .footer, .products-list .product-shop p,
+label.pages
+{
+    font-family: 'Noto Sans TC', DIN, Helvetica, Arial, sans-serif;
+}
+
