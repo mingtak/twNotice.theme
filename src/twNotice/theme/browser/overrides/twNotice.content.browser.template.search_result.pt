@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="twNotice.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+
+<section class="content">
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+
+
+      <!--
+
+      Main Content start
+
+      //-->
+      <section class="envor-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+            <!--
+
+            Content Section start
+
+            //-->
+            <div class="col-lg-9">
+
+
+  <tal:getChildNodes define="brain view/brain;
+                             pageItems python:10;
+                             s python:getattr(request, 's', 0)">
+
+              <metal:macro use-macro="context/@@theme_macro/macros/pages" />
+</tal:getChildNodes>
+
+
+
+              <p class="blog-cat">搜尋條件
+                  <span tal:condition="view/request/form/keyword">關鍵字 <strong tal:content="view/request/form/keyword" /></span>
+                  <span tal:condition="view/request/form/org_name">機關名稱 <strong tal:content="view/request/form/org_name" /></span>
+                  的結果如下:
+              </p>
+              <article class="envor-post" tal:repeat="item view/brain">
+                <header>
+                  <h3><!-- <i class="fa fa-pencil"></i> --><a tal:attributes="href item/getURL" tal:content="item/Title">Title</a></h3>
+                  <p><strong>機關名稱:</strong> <span tal:replace="python:item.getObject().noticeMeta.get(view.safe_unicode('機關名稱'))" />
+                     <strong>預算金額:</strong> <span tal:replace="python:item.getObject().noticeMeta.get(view.safe_unicode('預算金額'))" />
+                  </p>
+                </header>
+<!--
+                <p><a tal:attributes="href item/getURL" class="envor-btn envor-btn-small envor-btn-secondary-border">閱讀全文 <i class="fa fa-arrow-circle-right"></i></a></p>
+-->
+                <div class="date" title="載止投標"
+                     tal:define="deadline python:item.getObject().noticeMeta.get(view.safe_unicode('截止投標'));"
+                     tal:condition="deadline">
+                  <span class="day" tal:content="python:deadline.split()[0].split('/')[2]">24</span>
+                  <span class="month" tal:content="python:'%s年%s月' % (int(deadline.split()[0].split('/')[0]),
+                                                                        int(deadline.split()[0].split('/')[1]))">dec, 13</span>
+                </div>
+              </article>
+
+              <div class="envor-pagination"> <!-- 頁碼 -->
+                <span class="page-numbers current">1</span>
+                <a class="page-numbers" href="">2</a>
+                <a class="page-numbers" href="">3</a>
+                <a class="next page-numbers" href="">Next &raquo;</a>
+              </div>
+
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+
+      Main Content start
+
+      //-->
+      </section>
+
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+
+
+</section>
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
