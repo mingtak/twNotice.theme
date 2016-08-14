@@ -106,10 +106,19 @@
             <div class="col-lg-7">
               <p>會員登入 / 註冊</p>
               <p>
-                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="fa fa-facebook"></i> Facebook</a>
-                <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="fa fa-google-plus"></i> Google</a>
-                <a href="" class="envor-btn envor-btn-primary envor-btn-normal"><i class="fa fa-key"></i> 帳號登入</a>
-                <a href="" class="envor-btn envor-btn-secondary envor-btn-normal"><i class="fa fa-book"></i> 註冊</a>
+                <a href="" title="Facebook登入">
+                  <img alt="Facebook登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_facebook.png/@@images/image/tile"/>
+                </a>
+                <a href="" title="Google登入">
+                  <img alt="Google登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_google.png/@@images/image/tile"/>
+                </a>
+                <a href="" title="帳號登入">
+                  <img alt="帳號登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_login.png/@@images/image/tile"/>
+                </a>
+                <a href="" title="註冊帳號">
+                  <img alt="註冊帳號" tal:attributes="src string:${portal/absolute_url}/resource/images/button_reg.png/@@images/image/tile"/>
+                </a>
+
               </p>
             </div>
           </div>
