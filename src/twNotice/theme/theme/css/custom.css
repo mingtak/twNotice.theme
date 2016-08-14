@@ -90,6 +90,7 @@ li.notice_info {
     border: initial;
     padding: initial;
     text-align: initial;
+    font-size: 13px;
 }
 
 /* D3 style */
