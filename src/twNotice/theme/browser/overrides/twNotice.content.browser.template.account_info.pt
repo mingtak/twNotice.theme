@@ -12,7 +12,138 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
-account_info.pt
+<?python
+from plone import api
+from Products.CMFPlone.utils import safe_unicode
+?>
+
+
+<section class="content">
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <!--
+      Main Content start
+      //-->
+      <section class="envor-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+            <!--
+            Content Section start
+            //-->
+            <div class="col-lg-9">
+
+
+              <h2 i18n:translate="">Account Information</h2>
+
+
+              <h3 tal:content="python:'您好，%s' % view.myProfile().title.encode('utf-8')">Hello, Name.</h3>
+                <p>以下是您的個人資料，如需更新，請直接填寫後按「確認」，即完成更新。</p>
+
+
+<form action="/account_info" method="post" name="account_info" style="width:50%">
+                  <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
+                         tal:attributes="value view/currentId">
+
+                  <table class="data-table accountinfo table">
+                    
+                    <tbody>
+                      <tr class="first odd">
+                        <td i18n:translate="" class="fieldtitle">Name</td>
+                        <td>
+                          <input class="accountinfo input-text" name="name" value="" type="text" autocomplete="on"
+                                 tal:attributes="value python:view.myProfile().title">
+                        </td>
+                      </tr>
+
+                      <tr class="even">
+                        <td i18n:translate="" class="fieldtitle">Member Grade</td>
+                        <td>
+                            <strong tal:content="view/memberGrade" />
+                            <span tal:condition="python:view.memberGrade()=='付費帳號'"
+                                  tal:content="python:'有效期限至: %s' % view.myProfile().paidPeriod.strftime('%Y/%m/%d')" />
+                            <a tal:condition="python:view.memberGrade()=='一般帳號'" href="">(立刻升級)</a>
+                        </td>
+                      </tr>
+
+                      <tr class="odd">
+                        <td i18n:translate="" class="fieldtitle">Phone</td>
+                        <td>
+                          <input class="accountinfo input-text" name="phone" value="" type="text" autocomplete="off"
+                                 placeholder="Please fill phone number include zip code, ex: 0223456789"
+                                 pattern="[0-9, -]{8,12}" title="Please fill phone number include zip code, ex: 0223456789"
+                                 i18n:attributes="placeholder; title"
+                                 tal:attributes="value python:view.myProfile().phone">
+                        </td>
+                      </tr>
+
+                      <tr class="even">
+                        <td i18n:translate="" class="fieldtitle">Cell Phone</td>
+                        <td>
+                          <input class="accountinfo input-text" name="cellphone" value="" type="text" autocomplete="on"
+                                 placeholder="Please fill cell phone number, ex: 0912345678"
+                                 pattern="[0-9, -]{10,12}" title="Please fill cell phone number, ex: 0912345678"
+                                 i18n:attributes="placeholder; title"
+                                 tal:attributes="value python:view.myProfile().cellPhone">
+                        </td>
+                      </tr>
+
+                      <tr class="odd">
+                        <td i18n:translate="" class="fieldtitle">Email</td>
+                        <td>
+                          <input class="accountinfo input-text" name="email" value="" type="email" autocomplete="on"
+                                 placeholder="請輸入您的email地址" 
+                                 tal:attributes="value python:view.myProfile().email">
+                        </td>
+                      </tr>
+
+                      <tr class="even">
+                        <td i18n:translate="" class="fieldtitle">Address 1</td>
+                        <td>
+                          <select class="city selectcity" name="city" tal:attributes="data-selected python:view.myProfile().addr_city"></select>
+                          <select class="district selectdistrict" name="district" tal:attributes="data-selected python:view.myProfile().addr_district"></select>
+                          <input class="zipcode fillzip input-text" name="zipcode" value="" type="text" pattern="[0-9, -]{3,3}"
+                                 placeholder="郵遞區號" title="請輸入3碼郵遞區號" autocomplete="on">
+                          <input class="address filladdress input-text" name="address" value="" type="text" placeholder="請輸入地址" 
+                                 tal:attributes="value python:view.myProfile().addr_address" autocomplete="on">
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br/>
+                  <button class="btn right btn-lg btn-info" title="update" type="submit" i18n:translate="">Confirm</button>
+</form>
+
+<script src="/++theme++twNotice.theme/js/dk-tw-citySelector.min.js" async></script>
+<script>
+  $(function() {
+  $('form').dk_tw_citySelector('.city', '.district', '.zipcode');
+  });
+
+  $(function() {
+  $('form').dk_tw_citySelector('.city2', '.district2', '.zipcode2');
+  });
+</script>
+
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+      Main Content start
+      //-->
+      </section>
+
+</section>
+
+
+
 
 
 </metal:content-core>
