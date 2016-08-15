@@ -39,11 +39,11 @@ from Products.CMFPlone.utils import safe_unicode
               <h2 i18n:translate="">Account Information</h2>
 
 
-              <h3 tal:content="python:'您好，%s' % view.myProfile().title.encode('utf-8')">Hello, Name.</h3>
+              <h3 tal:content="python:u'您好，%s' % safe_unicode(view.myProfile().title)">Hello, Name.</h3>
                 <p>以下是您的個人資料，如需更新，請直接填寫後按「確認」，即完成更新。</p>
 
 
-<form action="/account_info" method="post" name="account_info" style="width:50%">
+<form action="/update_account_info" method="post" name="account_info" style="width:50%">
                   <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
                          tal:attributes="value view/currentId">
 
