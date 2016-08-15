@@ -116,20 +116,6 @@ from Products.CMFPlone.utils import safe_unicode
                   <button class="btn right btn-lg btn-info" title="update" type="submit" i18n:translate="">Confirm</button>
 </form>
 
-<script src="/++theme++twNotice.theme/js/dk-tw-citySelector.min.js" async></script>
-<script>
-  $(function() {
-  $('form').dk_tw_citySelector('.city', '.district', '.zipcode');
-  });
-
-  $(function() {
-  $('form').dk_tw_citySelector('.city2', '.district2', '.zipcode2');
-  });
-</script>
-
-
-
-
 
 
             </div>
