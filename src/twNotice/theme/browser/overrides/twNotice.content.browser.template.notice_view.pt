@@ -117,8 +117,10 @@ from Products.CMFPlone.utils import safe_unicode
     <h3>標案追蹤</h3>
 
 <tal:repeat repeat="item view/get_related">
-<li>
- <strong tal:content="python:'%s年%s月%s日: ' % (item.dateString[0:4], item.dateString[4:6], item.dateString[6:8])" />
+<li class="notice_info">
+ <strong><i class="fa fa-location-arrow"/>
+   <span tal:replace="python:'%s年%s月%s日: ' % (item.dateString[0:4], item.dateString[4:6], item.dateString[6:8])" />
+ </strong>
  <a tal:attributes="href item/getURL" tal:content="item/noticeType"/>
 </li>
 </tal:repeat>
