@@ -32,7 +32,9 @@
       />
 
     <!-- merge classes from Plone body with theme body -->
+    <!-- css:if-content="body.userrole-manager" 後來加的 -->
     <merge
+      css:if-content="body.userrole-manager"
       attributes="class"
       css:content="body"
       css:theme="body"
@@ -131,7 +133,13 @@
 
     <!-- CONTENT -->
     <replace
-      css:content-children=".content"
+      css:if-content="section.content"
+      css:content-children="section.content"
+      css:theme-children="div.envor-content"
+      />
+    <replace
+      css:if-not-content="section.content"
+      css:content-children="#content-core"
       css:theme-children="div.envor-content"
       />
 
@@ -152,6 +160,12 @@
       css:content-children="div.d3_pie"
       css:theme-children="body"
       />
+
+    <!-- Drop edit-zone -->
+    <drop
+      css:if-not-content=".userrole-manager"
+      css:content="div#edit-zone"
+    />
 
   </rules>
 

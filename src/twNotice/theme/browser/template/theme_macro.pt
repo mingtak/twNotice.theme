@@ -111,16 +111,16 @@ portal = api.portal.get()
             <div class="col-lg-7">
               <p>會員登入 / 註冊</p>
               <p>
-                <a href="" title="Facebook登入">
+                <a tal:attributes="href string:${portal/absolute_url}/@@facebookLogin" title="Facebook登入">
                   <img alt="Facebook登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_facebook.png/@@images/image/tile"/>
                 </a>
-                <a href="" title="Google登入">
+                <a tal:attributes="href string:${portal/absolute_url}/@@googleLogin"  title="Google登入">
                   <img alt="Google登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_google.png/@@images/image/tile"/>
                 </a>
-                <a href="" title="帳號登入">
+                <a class="asjx cboxElement" tal:attributes="href string:${portal/absolute_url}/@@id_login" title="帳號登入">
                   <img alt="帳號登入" tal:attributes="src string:${portal/absolute_url}/resource/images/button_login.png/@@images/image/tile"/>
                 </a>
-                <a href="" title="註冊帳號">
+                <a class="asjx cboxElement" tal:attributes="href string:${portal/absolute_url}/@@join_us" title="註冊帳號">
                   <img alt="註冊帳號" tal:attributes="src string:${portal/absolute_url}/resource/images/button_reg.png/@@images/image/tile"/>
                 </a>
 
