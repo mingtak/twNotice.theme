@@ -161,6 +161,12 @@
       css:theme-children="body"
       />
 
+    <!-- Body Bottom Script -->
+    <after
+      css:content-children="#body_bottom_script"
+      css:theme-children="body"
+      />
+
     <!-- Drop edit-zone -->
     <drop
       css:if-not-content=".userrole-manager"

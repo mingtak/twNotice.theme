@@ -35,4 +35,14 @@
     layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
     />
 
+  <browser:viewlet
+    name="body_bottom_script"
+    for="*"
+    manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+    class=".viewlets.BodyBottomScript"
+    template="template/body_bottom_script.pt"
+    permission="zope2.View"
+    layer="twNotice.theme.interfaces.ITwnoticeThemeLayer"
+    />
+
 </configure>

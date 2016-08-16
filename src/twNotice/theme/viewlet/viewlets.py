@@ -4,6 +4,10 @@ from plone import api
 from DateTime import DateTime
 
 
+class BodyBottomScript(base.ViewletBase):
+    """ Body Bottom Script  """
+
+
 class ContactUsInHeader(base.ViewletBase):
     """  """
 

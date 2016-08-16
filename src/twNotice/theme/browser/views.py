@@ -8,4 +8,3 @@ from plone import api
 class ThemeMacro(BrowserView):
     """ Theme Macro (With Layer)
     """
-

@@ -33,17 +33,12 @@ from Products.CMFPlone.utils import safe_unicode
             <!--
             Content Section start
             //-->
-            <div class="col-lg-9">
+            <div class="col-lg-4">
+              <h3 i18n:translate="">Account Information</h3>
+              <p tal:content="python:u'您好，%s, 要更新個人資料，請填寫後按「確認」即可。' % safe_unicode(view.myProfile().title)">Hello, Name.</p>
 
 
-              <h2 i18n:translate="">Account Information</h2>
-
-
-              <h3 tal:content="python:u'您好，%s' % safe_unicode(view.myProfile().title)">Hello, Name.</h3>
-                <p>以下是您的個人資料，如需更新，請直接填寫後按「確認」，即完成更新。</p>
-
-
-<form action="/update_account_info" method="post" name="account_info" style="width:50%">
+<form action="/update_account_info" method="post" name="account_info">
                   <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
                          tal:attributes="value view/currentId">
 
@@ -102,21 +97,55 @@ from Products.CMFPlone.utils import safe_unicode
                       <tr class="even">
                         <td i18n:translate="" class="fieldtitle">Address 1</td>
                         <td>
-                          <select class="city selectcity" name="city" tal:attributes="data-selected python:view.myProfile().addr_city"></select>
-                          <select class="district selectdistrict" name="district" tal:attributes="data-selected python:view.myProfile().addr_district"></select>
-                          <input class="zipcode fillzip input-text" name="zipcode" value="" type="text" pattern="[0-9, -]{3,3}"
+                          <select class="accountinfo city selectcity" name="city" tal:attributes="data-selected python:view.myProfile().addr_city"></select>
+                          <select class="accountinfo district selectdistrict" name="district" tal:attributes="data-selected python:view.myProfile().addr_district"></select>
+                          <input class="accountinfo zipcode fillzip input-text" name="zipcode" value="" type="text" pattern="[0-9, -]{3,3}"
                                  placeholder="郵遞區號" title="請輸入3碼郵遞區號" autocomplete="on">
-                          <input class="address filladdress input-text" name="address" value="" type="text" placeholder="請輸入地址" 
+                          <input class="accountinfo address filladdress input-text" name="address" value="" type="text" placeholder="請輸入地址" 
                                  tal:attributes="value python:view.myProfile().addr_address" autocomplete="on">
                         </td>
                       </tr>
                     </tbody>
                   </table>
                   <br/>
-                  <button class="btn right btn-lg btn-info" title="update" type="submit" i18n:translate="">Confirm</button>
+                  <button class="btn right btn-lg btn-info pull-right" title="update" type="submit" i18n:translate="">Confirm</button>
 </form>
+            </div>
+
+<!-- keyword 設定 -->
+            <div class="col-lg-5">
+
+              <h3 i18n:translate="">Keyword Setting</h3>
+<p>關鍵字追蹤設定</p>
+<form action="/update_account_info" method="post" name="account_info">
 
 
+                  <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
+                         tal:attributes="value view/currentId">
+
+                  <table class="data-table accountinfo table">
+                    
+                    <tbody id="keyword_seting_section" tal:define="keywords python:view.myProfile().traceKeywords">
+                      <tr tal:condition="not:keywords">
+                        <td>
+                          <input class="accountinfo input-text" name="keywrod" value="" type="text" autocomplete="on"
+                                 placeholder="請輸入要追蹤的關鍵字詞, 如「水電」" >
+                        </td>
+<td class="del_tr"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+                      </tr>
+                      <tr tal:repeat="keyword keywords">
+                        <td>
+                          <input class="accountinfo input-text" name="keyword" value="" type="text" autocomplete="on"
+                                 tal:attributes="value keyword">
+                        </td>
+<td class="del_tr"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br/>
+                  <button class="btn right btn-lg btn-info pull-right" title="update" type="submit" i18n:translate="">Confirm</button>
+                  <button class="add_field btn right btn-lg btn-info pull-right" type="button" i18n:translate="">Add Field</button>
+</form>
 
             </div>
           </div>

@@ -1,0 +1,30 @@
+<div id="body_bottom_script">
+
+<script type="text/javascript">
+
+// Add field
+$(document).on('click', '.add_field', function(event){
+    var newField = document.createElement('tr');
+    var tbody = document.getElementById('keyword_seting_section');
+
+    newField.innerHTML = function(){/* 
+        <td>  
+            <input class="accountinfo input-text" name="keyword" value="" type="text" autocomplete="on"  
+                          placeholder="請輸入要追蹤的關鍵字詞, 如「水電」" >
+        </td>
+        <td class="del_tr"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>*/}.toString().slice(14,-3); 
+
+    tbody.appendChild(newField);
+});
+
+// Del Field
+$(document).on('click', '.del_tr', function(event){
+    var tr = this.parentNode;
+    tr.remove();
+});
+
+
+
+</script>
+
+</div>

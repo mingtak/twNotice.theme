@@ -1,5 +1,39 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+button[type=button] {
+    padding: 0px 10px;
+    margin-right: 5px;
+}
+
+.accountinfo {
+    margin:2px;
+}
+
+select.accountinfo {
+    width:30%;
+    min-width:initial;
+}
+
+input[type=text], input[type=email], input[type=file], input[type=tel], input[type=url], input[type=password] {
+    min-width: 200px;
+    background-color: #ddd;
+    border: 1px solid #e5e5e5;
+    line-height: 250%;
+    padding: 0px 10px;
+    height: 34px;
+    border-radius: 3px;
+    float: left;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    transition-style: linear;
+    transition-duration: 0.2s;
+}
+
+input.accountinfo{
+    width: 100%;
+}
+
 body {
     color: #777;
 }
@@ -50,7 +84,7 @@ body {
 input[type=number],
 select, textarea {
 	min-width: 200px;
-	background-color: #fff;
+	background-color: #ddd;
 	border: 1px solid #e5e5e5;
 	line-height: 250%;
 	padding: 0px 10px;
@@ -91,6 +125,11 @@ li.notice_info {
     padding: initial;
     text-align: initial;
     font-size: 13px;
+}
+
+input.zipcode {
+    min-width:initial;
+    width:30%;
 }
 
 /* D3 style */
