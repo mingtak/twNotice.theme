@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="twNotice.content">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+?>
+
+<section class="content">
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <!--
+      Main Content start
+      //-->
+      <section class="envor-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+            <!--
+            Content Section start
+            //-->
+            <div class="col-lg-9">
+
+
+              <h3 tal:content="string:${context/title}(${context/engTitle})"/>
+
+              <h4 tal:content="string:分類: ${context/noticeCategory}"/>
+              <ul>
+                <li tal:repeat="key context/childrenCPC/keys">
+                  <strong tal:content="key"/>:
+                  <span tal:replace="python:context.childrenCPC[key]"/>
+                </li>
+              </ul>
+<hr>
+              <h4 i18n:translate="">Relation Notice</h4>
+              <ul>
+                <li tal:repeat="item python:view.related_notice()">
+                  <a tal:attributes="href item/getURL">
+                    <strong tal:content="item/Title"/>
+                  </a>
+                  <span tal:replace="python:'公告日: %s年%s月%s日' % (item.dateString[0:4], item.dateString[4:6], item.dateString[6:])"/>
+                </li>
+              </ul>
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      <!--
+      Main Content start
+      //-->
+      </section>
+
+
+
+
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+</section>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
+
+
