@@ -34,10 +34,26 @@ from Products.CMFPlone.utils import safe_unicode
             <div class="col-lg-9">
 <h2 tal:content="context/title"/>
 
+<tal:switch switch="view/traceState">
+    <tal:case case="string:anon">
+        <a href="" class="envor-btn envor-btn-primary envor-btn-normal" i18n:translate="">Trace Notice</a>
+    </tal:case>
+
+    <tal:case case="string:trace">
+        <button tal:attributes="id context/id"
+                class="traced envor-btn envor-btn-primary envor-btn-normal" type="button" i18n:translate="">Untrace Notice</button>
+    </tal:case>
+
+    <tal:case case="string:untrace">
+        <button tal:attributes="id context/id"
+                class="untrace envor-btn envor-btn-primary envor-btn-normal" type="button" i18n:translate="">Trace Notice</button>
+    </tal:case>
+</tal:switch>
             <!--
             * Counter
             //-->
-            <div class="riva-countdown" id="riva-countdown" style="float:right"> <h4>距離投標截止</h4>
+            <div class="riva-countdown" id="riva-countdown" style="float:right">
+              <h4>距離投標截止</h4>
               <!--
               * Days
               //-->

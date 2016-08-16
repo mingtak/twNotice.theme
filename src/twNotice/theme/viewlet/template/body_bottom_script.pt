@@ -2,6 +2,21 @@
 
 <script type="text/javascript">
 
+// Trace Notice
+$(document).on('click', '.untrace', function(event){
+    var id = $(this).attr('id');
+    $(this).load('/@@update_trace_notice?trace=y&id=' + id);
+    $(this).attr('class', 'traced envor-btn envor-btn-primary envor-btn-normal');
+});
+
+// Untrace Notice
+$(document).on('click', '.traced', function(event){
+    var id = $(this).attr('id');
+    $(this).load('/@@update_trace_notice?trace=n&id=' + id);
+    $(this).attr('class', 'untrace envor-btn envor-btn-primary envor-btn-normal');
+});
+
+
 // Add field
 $(document).on('click', '.add_field', function(event){
     var newField = document.createElement('tr');
@@ -23,6 +38,14 @@ $(document).on('click', '.del_tr', function(event){
     tr.remove();
 });
 
+
+// Del Field
+$(document).on('click', '.del_trace_notice', function(event){
+    var tr = this.parentNode;
+    var id = $(this).attr('id');
+    $(this).load('/@@update_trace_notice?trace=n&id=' + id);
+    tr.remove();
+});
 
 
 </script>

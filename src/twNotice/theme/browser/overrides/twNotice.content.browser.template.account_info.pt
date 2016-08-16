@@ -147,6 +147,35 @@ from Products.CMFPlone.utils import safe_unicode
                   <button class="add_field btn right btn-lg btn-info pull-right" type="button" i18n:translate="">Add Field</button>
 </form>
 
+
+
+<br/>
+
+<h3 i18n:translate="">Notice Trace</h3>
+<p>標案追蹤一覽表</p>
+
+                  <table class="data-table accountinfo table">
+                   
+                    <tbody id="notice_trace_section" tal:define="catalog python:context.portal_catalog;
+                                                                 noticeTraceCode python:view.myProfile().noticeTraceCode">
+                      <tr tal:repeat="code noticeTraceCode">
+<tal:catalog define="item python:catalog({'Type':'Notice', 'noticeTraceCode':code}, sort_on='noticeTraceCode')[0]">
+                        <td>
+                          <a tal:attributes="href item/getURL" tal:content="item/Title" />
+                        </td>
+<td tal:attributes="id item/id" class="del_trace_notice"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
+</tal:catalog>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+
+
+
+
+
             </div>
           </div>
         </div>
