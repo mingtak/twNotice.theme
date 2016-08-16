@@ -1,0 +1,19 @@
+<tal:block condition="view/show"
+           i18n:domain="twNotice.theme">
+
+<section class="portlet portletLogin"  role="section"
+    tal:condition="view/available">
+
+
+
+<p>
+  <img class="image-inline" title="臉書登入" src="resolveuid/bd87179db5894941b4f55db8ae3210df/@@images/image/icon" alt="" data-linktype="image" data-scale="icon" data-val="bd87179db5894941b4f55db8ae3210df" />
+  <img class="image-inline" title="Google登入" src="resolveuid/da3825565e5a4cf88448bdd2d3393036/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="da3825565e5a4cf88448bdd2d3393036" />
+  <img class="image-inline" title="帳號登入" src="resolveuid/a55f725c90c34e688ed735ea0de20168/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="a55f725c90c34e688ed735ea0de20168" />
+  <img class="image-inline" title="註冊帳號" src="resolveuid/40bb6ef24dee40149693ff659044a721/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="40bb6ef24dee40149693ff659044a721" />
+</p>
+
+
+</section>
+
+</tal:block>
