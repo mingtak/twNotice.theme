@@ -13,7 +13,9 @@
                     tal:define="toc context/table_of_contents|nothing;">
 
 <?python
+from plone import api
 from Products.CMFPlone.utils import safe_unicode
+portal = api.portal.get()
 ?>
 
 <section class="content">
@@ -105,6 +107,11 @@ from Products.CMFPlone.utils import safe_unicode
               </a>
               <span tal:condition="not:orgBrain" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
             </tal:org>
+          </tal:a>
+          <tal:a case="python:'得標廠商'">
+              <a tal:attributes="href python:'%s/@@bidder_info?bidder=%s' % (portal.absolute_url(), context.noticeMeta.get(safe_unicode(item)))">
+                <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+              </a>
           </tal:a>
 
           <span tal:case="default" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
