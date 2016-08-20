@@ -133,7 +133,7 @@ input.zipcode {
 }
 
 /* D3 style */
-      #chart {
+      .pei-chart {
         height: 360px;
         margin: 0 auto;                                               /* NEW */
         position: relative;
@@ -145,12 +145,12 @@ input.zipcode {
         color: #333;
         display: none;
         font-size: 12px;
-        left: 130px;
+        left: 120px;
         padding: 10px;
         position: absolute;
         text-align: center;
-        top: 1450px;
-        width: 80px;
+        top: 150px;
+        width: 120px;
         z-index: 10;
       }
       .legend {

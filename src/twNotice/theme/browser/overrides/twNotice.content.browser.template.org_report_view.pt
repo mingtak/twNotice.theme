@@ -50,8 +50,49 @@ catalog = portal.portal_catalog
 
     <h4>機關預算執行統計</h4>
     <ul>
+
       <li tal:repeat="info_year info">
         <strong tal:content="python:year-repeat['info_year'].index"/>: <span tal:replace="python:info_year[0]" />
+
+        <!-- 標案數量統計(CPC) 原始資料/Sorted -->
+        <div tal:attributes="class python:'%s_%s_tenderCountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_tenderCountInfo_raw' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+        <div tal:attributes="class python:'%s_%s_tenderCountInfo' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_tenderCountInfo' % (context.id, year-repeat['info_year'].index))" 
+             stylea="display:none" />
+
+        <!-- 標案金額統計(CPC) 原始資料/Sorted -->
+        <div tal:attributes="class python:'%s_%s_tenderAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_tenderAmountInfo_raw' % (context.id, year-repeat['info_year'].index))" 
+             stylea="display:none" />
+        <div tal:attributes="class python:'%s_%s_tenderAmountInfo' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_tenderAmountInfo' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+
+        <!-- 得標案件統計(winner) 原始資料/Sorted -->
+        <div tal:attributes="class python:'%s_%s_winnerCountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_winnerCountInfo_raw' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+        <div tal:attributes="class python:'%s_%s_winnerCountInfo' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_winnerCountInfo' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+
+        <!-- 得標金額統計(winner) 原始資料/Sorted -->
+        <div tal:attributes="class python:'%s_%s_winnerAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_winnerAmountInfo_raw' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+        <div tal:attributes="class python:'%s_%s_winnerAmountInfo' % (context.id, year-repeat['info_year'].index)"
+             tal:content="python:context.report.get('%s_%s_winnerAmountInfo' % (context.id, year-repeat['info_year'].index))"
+             stylea="display:none" />
+
+
+
+
+        <div tal:attributes="class python:'pie-chart pie-chart-%s' % (year-repeat['info_year'].index)">
+          <h4>分析圖表</h4>
+        </div>
+
       </li>
     </ul>
 
