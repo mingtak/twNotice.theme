@@ -1,7 +1,8 @@
 <div class="d3_pie">
 
     <script>
-      (function(d3) {
+
+      var pie = function(pieString, d3) {
         'use strict';
 
         var width = 360;
@@ -13,7 +14,7 @@
 
         var color = d3.scaleOrdinal(d3.schemeCategory20b);
 
-        var svg = d3.select('#pie305000000C_2015_tenderCountInfo_raw')
+        var svg = d3.select('#' + pieString)
           .append('svg')
           .attr('width', width)
           .attr('height', height)
@@ -29,7 +30,7 @@
           .value(function(d) { return d.count; })
           .sort(null);
 
-        var tooltip = d3.select('#pie305000000C_2015_tenderCountInfo_raw')
+        var tooltip = d3.select('#' + pieString)
           .append('div')
           .attr('class', 'message');
 
@@ -43,7 +44,7 @@
           .attr('class', 'percent');
 
 
-        d3.json('@@org_report_view?data=305000000C_2015_tenderCountInfo_raw', function(error, dataset) {
+        d3.json('@@org_report_view?data=' + pieString, function(error, dataset) {
           dataset.forEach(function(d) {
             d.count = +d.count;
             d.enabled = true;                                         // NEW
@@ -61,7 +62,6 @@
 
           path.on('mouseover', function(d) {
             var total = d3.sum(dataset.map(function(d) {
-              return d.count;
               return (d.enabled) ? d.count : 0;                       // UPDATED
             }));
 
@@ -113,10 +113,10 @@
               } else {                                                
                 if (totalEnabled < 2) return;                         
                 rect.attr('class', 'disabled');                       
-                enabled = false;                                      
+                enabled = false;
               }                                                       
 
-              pie.value(function(d) {                                 
+              pie.value(function(d) {
                 if (d.label === label) d.enabled = enabled;           
                 return (d.enabled) ? d.count : 0;                     
               });                                                     
@@ -124,7 +124,7 @@
               path = path.data(pie(dataset));                         
 
               path.transition()                                       
-                .duration(750)                                        
+                .duration(750)                                 
                 .attrTween('d', function(d) {                         
                   var interpolate = d3.interpolate(this._current, d); 
                   this._current = interpolate(0);                     
@@ -139,11 +139,16 @@
             .attr('y', legendRectSize - legendSpacing)
             .text(function(d) { return d; });
 
-
         });
 
-      })(window.d3);
+      };
 
+    var pieTags = document.getElementsByClassName('pie-chart');
+
+    for (var i=0; i<pieTags.length; i++) {
+        pie(pieTags[i].id, window.d3);
+    }
     </script>
+
 
 </div>

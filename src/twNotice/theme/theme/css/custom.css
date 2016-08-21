@@ -145,12 +145,12 @@ input.zipcode {
         color: #333;
         display: none;
         font-size: 12px;
-        left: 120px;
+        left: 420px;
         padding: 10px;
-        position: absolute;
+        position: relative;
         text-align: center;
-        top: 150px;
-        width: 120px;
+        top: -250px;
+        width: 320px;
         z-index: 10;
       }
       .legend {
