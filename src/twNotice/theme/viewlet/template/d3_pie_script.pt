@@ -13,7 +13,7 @@
 
         var color = d3.scaleOrdinal(d3.schemeCategory20b);
 
-        var svg = d3.select('.pie-chart-2016')
+        var svg = d3.select('#pie305000000C_2015_tenderCountInfo_raw')
           .append('svg')
           .attr('width', width)
           .attr('height', height)
@@ -29,7 +29,7 @@
           .value(function(d) { return d.count; })
           .sort(null);
 
-        var tooltip = d3.select('.pie-chart-2016')
+        var tooltip = d3.select('#pie305000000C_2015_tenderCountInfo_raw')
           .append('div')
           .attr('class', 'message');
 
@@ -42,10 +42,11 @@
         tooltip.append('div')
           .attr('class', 'percent');
 
-        d3.csv('https://raw.githubusercontent.com/zeroviscosity/d3-js-step-by-step/master/weekdays.csv', function(error, dataset) {
+
+        d3.json('@@org_report_view?data=305000000C_2015_tenderCountInfo_raw', function(error, dataset) {
           dataset.forEach(function(d) {
             d.count = +d.count;
-            d.enabled = true;                                         
+            d.enabled = true;                                         // NEW
           });
 
           var path = svg.selectAll('path')
@@ -60,8 +61,10 @@
 
           path.on('mouseover', function(d) {
             var total = d3.sum(dataset.map(function(d) {
+              return d.count;
               return (d.enabled) ? d.count : 0;                       // UPDATED
             }));
+
             var percent = Math.round(1000 * d.data.count / total) / 10;
             tooltip.select('.label').html(d.data.label);
             tooltip.select('.count').html(d.data.count);
@@ -136,9 +139,11 @@
             .attr('y', legendRectSize - legendSpacing)
             .text(function(d) { return d; });
 
+
         });
 
       })(window.d3);
+
     </script>
 
 </div>
