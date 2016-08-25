@@ -51,9 +51,12 @@ catalog = portal.portal_catalog
     <ul>
       <li tal:repeat="info_year info">
         <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[1])" />
+<h6>分析圖表</h6>
         <div tal:attributes="id python:'pie%s_%s_tenderCountInfo' % (context.id, year-repeat['info_year'].index)"
              class="pie-chart">
-          <h6>分析圖表</h6>
+        </div>
+        <div tal:attributes="id python:'bar%s_%s_tenderCountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             class="bar-chart">
         </div>
       </li>
     </ul>
@@ -62,9 +65,12 @@ catalog = portal.portal_catalog
     <ul>
       <li tal:repeat="info_year info">
         <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[0])"/>
+<h6>分析圖表</h6>
         <div tal:attributes="id python:'pie%s_%s_tenderAmountInfo' % (context.id, year-repeat['info_year'].index)"
              class="pie-chart">
-          <h6>分析圖表</h6>
+        </div>
+        <div tal:attributes="id python:'bar%s_%s_tenderAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             class="bar-chart">
         </div>
       </li>
     </ul>
@@ -74,34 +80,26 @@ catalog = portal.portal_catalog
     <ul>
       <li tal:repeat="info_year info">
         <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[1])"/>
+<h6>分析圖表</h6>
         <div tal:attributes="id python:'pie%s_%s_winnerCountInfo' % (context.id, year-repeat['info_year'].index)"
              class="pie-chart">
-          <h6>分析圖表</h6>
         </div>
       </li>
     </ul>
 
-    <h4>廠商得預算金額分佈統計</h4>
+    <h4>廠商得標預算金額分佈統計</h4>
     <ul>
       <li tal:repeat="info_year info">
         <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[0])"/>
+<h6>分析圖表</h6>
         <div tal:attributes="id python:'pie%s_%s_winnerAmountInfo' % (context.id, year-repeat['info_year'].index)"
              class="pie-chart">
-          <h6>分析圖表</h6>
+        </div>
+        <div tal:attributes="id python:'bar%s_%s_winnerAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
+             class="bar-chart">
         </div>
       </li>
     </ul>
-
-
-
-
-
-
-
-
-
-
-
 
 
     </tal:info>

@@ -3,26 +3,58 @@
     <script>
 
       var pieTags = document.getElementsByClassName('pie-chart');
+      var barTags = document.getElementsByClassName('bar-chart');
 
       for (var i=0; i<pieTags.length; i++) {
         var tag = pieTags[i];
+        var chart = c3.generate({
+            bindto: tag,
+            data: {
+                url: '@@org_report_view?data=' + tag.id,
+                mimeType: 'json',
+                type: 'pie',
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+            tooltip: {
+                format: {
+                value: function (value, ratio, id, index) { return value; }
+                }
+            },
 
+        });
+      }
 
-
-var chart = c3.generate({
-    bindto: tag,
-
-    data: {
-        url: '@@org_report_view?data=' + tag.id,
-        mimeType: 'json',
-        type: 'pie',
-        onclick: function (d, i) { console.log("onclick", d, i); },
-        onmouseover: function (d, i) { console.log("onmouseover", d, i); },
-        onmouseout: function (d, i) { console.log("onmouseout", d, i); }
-    }
-});
+      for (var i=0; i<barTags.length; i++) {
+        var tag = barTags[i];
+        var chart = c3.generate({
+            bindto: tag,
+            data: {
+                url: '@@org_report_view?data=' + tag.id,
+                mimeType: 'json',
+                keys: {
+                    x: 'label',
+                    value: ['得標廠商'],
+                },
+                type: 'bar',
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+            axis: {
+                x: {type: 'category',},
+                rotated: true,
+            },
+            bar: {
+                width: 30
+            }
+        });
 
       }
+
+
+
 
     </script>
 
