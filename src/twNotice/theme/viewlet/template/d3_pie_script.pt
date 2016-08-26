@@ -42,6 +42,7 @@
                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
             },
+            size: {height: barTags.length * 30},
             axis: {
                 x: {type: 'category',},
                 rotated: true,
