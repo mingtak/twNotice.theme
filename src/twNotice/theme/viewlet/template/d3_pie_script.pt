@@ -28,6 +28,9 @@
 
       for (var i=0; i<barTags.length; i++) {
         var tag = barTags[i];
+        var urlString = '@@org_report_view?len=&data=' + tag.id;
+        var dataLen = $.ajax({url:urlString, async:false}).responseText;
+console.log(dataLen *30);
         var chart = c3.generate({
             bindto: tag,
             data: {
@@ -42,13 +45,13 @@
                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
             },
-            size: {height: barTags.length * 30},
+            size: {height: dataLen*60},
             axis: {
                 x: {type: 'category',},
                 rotated: true,
             },
             bar: {
-                width: 30
+                width: 20
             }
         });
 
