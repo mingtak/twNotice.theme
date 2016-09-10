@@ -124,7 +124,7 @@ portal = api.portal.get()
                     <h5 tal:content="python:portal['resource']['category'][cpc].title"
                         style="background-color:#e14d43; line-height:30px; text-indent:10px" />
                     <p tal:repeat="item python:view.brain[cpc]">
-                      <a tal:attributes="href item/getURL" tal:content="python:'%s%s' % (item.Title[0:80], '...' if len(item.Title)>80 else '')" />
+                      <a tal:attributes="href item/getURL" tal:content="python:'%s%s' % (item.Title[0:75], '...' if len(item.Title)>75 else '')" />
                     </p>
                     <p style="float:right">
                       <a class="envor-btn envor-btn-secondary-border envor-btn-small"
