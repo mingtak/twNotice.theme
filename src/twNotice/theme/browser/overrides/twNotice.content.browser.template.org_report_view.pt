@@ -41,72 +41,47 @@ catalog = portal.portal_catalog
 <tal:role switch="view/canSee">
   <tal:case case="True">
 
-    <h2 tal:content="context/title"/>
-    <h3>商情分析</h3>
+    <h2>商情分析 <span tal:replace="context/title" /></h2>
+
+
     <tal:info define="year python:view.get_this_year();
                       info python:[view.get_tender_at_year(year), view.get_tender_at_year(int(year)-1)];
-                      winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)]">
+                      winner python:[view.get_winner_at_year(year), view.get_winner_at_year(int(year)-1)];
+                      reports python:[['標案數量分佈統計', 'tenderCountInfo'],
+                                      ['標案預算分佈統計', 'tenderAmountInfo'],
+                                      ['廠商得標件數分佈統計', 'winnerCountInfo'],
+                                      ['廠商得標預算金額分佈統計', 'winnerAmountInfo'],]">
 
-    <h4>標案數量分佈統計</h4>
-    <ul>
-      <li tal:repeat="info_year info">
-        <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[1])" />
-<h6>分析圖表</h6>
-        <div tal:attributes="id python:'pie%s_%s_tenderCountInfo' % (context.id, year-repeat['info_year'].index)"
-             class="pie-chart">
-        </div>
-        <div tal:attributes="id python:'bar%s_%s_tenderCountInfo_raw' % (context.id, year-repeat['info_year'].index)"
-             class="bar-chart">
-        </div>
-      </li>
-    </ul>
+    <h3><a tal:attributes="href string:${context/absolute_url}" class="btn btn-info pull-right">近期標案</a></h3>
 
-    <h4>標案預算分佈統計</h4>
-    <ul>
-      <li tal:repeat="info_year info">
-        <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[0])"/>
-<h6>分析圖表</h6>
-        <div tal:attributes="id python:'pie%s_%s_tenderAmountInfo' % (context.id, year-repeat['info_year'].index)"
-             class="pie-chart">
-        </div>
-        <div tal:attributes="id python:'bar%s_%s_tenderAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
-             class="bar-chart">
-        </div>
-      </li>
-    </ul>
+<tal:report repeat="report reports">
+    <h4 tal:content="python:report[0]">Title</h4>
 
+              <div class="envor-tabs" style="padding-bottom:30px">
+                <header>
+                  <tal:tabs tal:repeat="info_year info">
+                    <span tal:content="python:'%s 年' % (year-repeat['info_year'].index)">2016年</span>
+                  </tal:tabs>
+                </header>
 
-    <h4>廠商得標件數分佈統計</h4>
-    <ul>
-      <li tal:repeat="info_year info">
-        <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[1])"/>
-<h6>分析圖表</h6>
-        <div tal:attributes="id python:'pie%s_%s_winnerCountInfo' % (context.id, year-repeat['info_year'].index)"
-             class="pie-chart">
-        </div>
-      </li>
-    </ul>
-
-    <h4>廠商得標預算金額分佈統計</h4>
-    <ul>
-      <li tal:repeat="info_year info">
-        <h5 tal:content="python:'%s: %s' % (year-repeat['info_year'].index, info_year[0])"/>
-<h6>分析圖表</h6>
-        <div tal:attributes="id python:'pie%s_%s_winnerAmountInfo' % (context.id, year-repeat['info_year'].index)"
-             class="pie-chart">
-        </div>
-        <div tal:attributes="id python:'bar%s_%s_winnerAmountInfo_raw' % (context.id, year-repeat['info_year'].index)"
-             class="bar-chart">
-        </div>
-      </li>
-    </ul>
+                <tal:article tal:repeat="info_year info">
+                  <article>
+                    <div tal:attributes="id python:'pie%s_%s_%s' % (context.id, year-repeat['info_year'].index, report[1])"
+                         class="pie-chart">
+                    </div>
+                    <div tal:attributes="id python:'bar%s_%s_%s_raw' % (context.id, year-repeat['info_year'].index, report[1])"
+                         class="bar-chart">
+                    </div>
+                  </article>
+                </tal:article>
+              </div>
+</tal:report>
 
 
     </tal:info>
 
 
-    <hr>
-    <h3><a tal:attributes="href string:${context/absolute_url}">近期標案</a></h3>
+    <h3><a tal:attributes="href string:${context/absolute_url}" class="btn btn-info pull-right">近期標案</a></h3>
 
 
 
