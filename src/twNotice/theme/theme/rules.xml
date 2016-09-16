@@ -161,6 +161,12 @@
       css:theme-children="body"
       />
 
+    <!-- Vuejs's js code -->
+    <after
+      css:content-children="#vue_js_code"
+      css:theme-children="body"
+      />
+
     <!-- Body Bottom Script -->
     <after
       css:content-children="#body_bottom_script"
