@@ -28,7 +28,7 @@
                 <li><a href=""><i class="fa fa-facebook"></i></a></li>
                 <li><a href=""><i class="fa fa-google-plus"></i></a></li>
                 <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                <li><a href=""><i class="fa fa-rss"></i></a></li>
+                <li><a href=""><i class="fa fa-shopping-cart"></i>({{ cart_items }})</a></li>
               <!--
 
               Social Buttons end
