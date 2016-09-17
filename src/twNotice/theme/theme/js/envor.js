@@ -132,11 +132,13 @@
 			var i = parseInt($span.html());
 			if ($(this).hasClass('fa-plus')) {
 				$span.html(i + 1);
+                                $total.attr('data-subamount', (i + 1) * price);
 				$total.html('$' + (i + 1) * price);
 			}
 			if ($(this).hasClass('fa-minus')) {
-				if (i != 1) {
+				if (i != 0) {
 					$span.html(i - 1);
+                                        $total.attr('data-subamount', (i - 1) * price);
 					$total.html('$' + (i - 1) * price);
 				}
 			}

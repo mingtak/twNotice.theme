@@ -1,3 +1,7 @@
+<?python
+from plone import api
+portal = api.portal.get()
+?>
       <!--
 
       Top bar start
@@ -27,8 +31,11 @@
               <ul class="social-btns">
                 <li><a href=""><i class="fa fa-facebook"></i></a></li>
                 <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                <li><a href=""><i class="fa fa-linkedin"></i></a></li>
-                <li><a href=""><i class="fa fa-shopping-cart"></i>({{ cart_items }})</a></li>
+                <li><a href="javascript: void(0)"><i class="fa fa-linkedin"></i></a></li>
+                <li><a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm">
+                      <i class="fa fa-shopping-cart"></i>({{ cart_items }})
+                    </a>
+                </li>
               <!--
 
               Social Buttons end
