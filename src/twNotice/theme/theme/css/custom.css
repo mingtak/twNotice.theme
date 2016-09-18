@@ -1,7 +1,12 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+.envor-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 #shipping_method_home_address select, #shipping_method_home_address input{
-margin:5px;
+    margin:5px;
 }
 
 span.big {
