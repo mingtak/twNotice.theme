@@ -1,5 +1,15 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+.envor-product-1 figure img {
+    float: initial;
+    display: block;
+    margin: auto;
+}
+
+#colorbox {
+    z-index: 10010;
+}
+
 .envor-section {
     padding-top: 30px;
     padding-bottom: 30px;

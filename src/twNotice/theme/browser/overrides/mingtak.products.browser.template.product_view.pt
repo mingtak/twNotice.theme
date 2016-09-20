@@ -1,0 +1,197 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://www.vuejs.org"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingtak.products">
+<body>
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+context = econtext['context']
+catalog = context.portal_catalog
+images = ['image_1', 'image_2', 'image_3', 'image_4', 'image_5']
+for i in range(len(images))[::-1]:
+    if not getattr(context, images[i]):
+        images.pop(i)
+relatedItems = catalog(Type='Product')
+?>
+
+<section class="content">
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <!--
+
+      Main Content start
+
+      //-->
+      <section class="envor-section envor-single-product">
+        <div class="container">
+          <div class="row">
+            <!--
+            Content Section start
+            //-->
+            <div class="col-lg-9">
+
+
+
+
+
+              <div class="row envor-margin-top-0">
+                <!--
+                Product images
+                //-->
+                <div class="col-lg-7">
+                  <div id="envor-project-images" class="carousel slide" data-ride="carousel">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                      <li tal:repeat="item images"
+                          tal:attributes="data-slide-to repeat/item/index; class python:'active' if repeat['item'].start else ''"
+                          data-target="#envor-project-images"></li>
+                    </ol>
+
+                    <!-- Wrapper for slides -->
+                    <div class="carousel-inner">
+                      <div tal:repeat="item images" tal:attributes="class python:'item active' if repeat['item'].start else 'item'">
+                        <a tal:attributes="href string:${context/absolute_url}/@@images/${item}/zoomin.png" class="colorbox">
+                          <img tal:attributes="src string:${context/absolute_url}/@@images/${item}/preview.png; alt context/title"
+                               style="margin:auto" />
+                        </a>
+                        <div class="carousel-caption" tal:content="python:getattr(context, item).filename">
+                          Laptop
+                        </div>
+                      </div>
+                    </div>
+                    <!-- Controls -->
+                    <a class="left carousel-control" href="#envor-project-images" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#envor-project-images" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                  </div>
+                </div>
+                <!--
+                Product description
+                //-->
+                <div class="col-lg-5">
+                  <h3 tal:content="context/title">Laptop</h3>
+                  <p class="price">$<span tal:replace="context/salePrice" /></p>
+                  <ul class="product-options">
+                    <li><span i18n:translate="">In Stock:</span> <span tal:replace="context/inStock" /></li>
+                    <li><span i18n:translate="">Brand:</span> <span tal:replace="context/brand" /></li>
+                    <li><span i18n:translate="">Sipping Fee:</span> 全館免運費</li>
+                  </ul>
+                  <p tal:content="context/description" />
+<!--                  <p class="qty" id="prod-qty">Quantity: <i class="fa fa-plus"></i><span class="qty-fld">1</span><i class="fa fa-minus"></i></p>
+                  <input type="hidden" name="qty" id="prod-qty-fld" value="1">
+-->
+                  <p style="padding-top:30px;">
+                    <button class="envor-btn envor-btn-normal envor-btn-primary"
+                            v-on:click="updateCart('plus', '${context/UID}')" >
+                      <i class="fa fa-shopping-cart"></i> 購物車 +1</button>
+
+                    <button class="envor-btn envor-btn-normal envor-btn-primary"
+                            v-on:click="updateCart('less', '${context/UID}')" >
+                      <i class="fa fa-shopping-cart"></i> 購物車 -1</button>
+
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="row envor-margin-top-0">
+                <!--
+                Product Details
+                //-->
+                <div class="col-lg-12">
+                  <h3 class="h3-2" i18n:translate="">product details</h3>
+                  <div tal:replace="structure context/promotionalText/raw"></div>
+                </div>
+              <!--
+              Product end
+              //-->
+              </div>
+              <!--
+              Related products start
+              //-->
+              <p>&nbsp;</p>
+              <h2>您可能會 <strong>喜歡</strong></h2>
+              <div class="envor-relative" id="related-products">
+                    <!--
+                    Project Item
+                    //-->
+                    <article class="envor-product-1 envor-padding-left-30" tal:repeat="item relatedItems">
+                      <div class="envor-product-1-inner">
+                        <figure>
+                          <a tal:attributes="href item/getURL">
+                            <img tal:attributes="src string:${item/getURL}/@@images/image_1/mini.png; alt item/Title">
+                          </a>
+                          <figcaption>
+                            <a tal:attributes="href string:${item/getURL}/@@images/image_1/large.png" class="colorbox"><i class="fa fa-plus"></i></a>
+                          </figcaption>
+                        </figure>
+                        <p class="title"><a tal:attributes="href item/getURL" tal:content="item/Title">flashlight</a></p>
+                        <div class="details">
+                          <span class="price">
+                            $<span tal:replace="item/salePrice" />
+                          </span>
+                          <span class="rating">
+                          &nbsp;
+                          </span>
+                        </div>
+                        <p class="cart-btn">
+                          <a href="javascript: void(0)" v-on:click="updateCart('plus', '${item/UID}')"
+                             class="envor-btn envor-btn-secondary envor-btn-small"><i class="fa fa-plus"></i> add to cart</a>
+                        </p>
+                      </div>
+                    </article>
+                    <!--
+                    Project Item
+                    //-->
+                    <!--
+                    Projects Navigation start
+                    //-->
+                    <div class="envor-navigation envor-navigation-left rivaslider-navigation">
+                      <a href="" class="back"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                      <a href="" class="forward"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <!--
+                    Projects Navigation end
+                    //-->
+                    </div>
+              <!--
+              Related products end
+              //-->
+              </div>
+
+
+            </div>
+
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+
+          </div>
+        </div>
+      <!--
+
+      Main Content start
+
+      //-->
+      </section>
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+
+</section>
+
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>

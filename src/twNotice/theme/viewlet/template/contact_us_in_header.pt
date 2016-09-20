@@ -1,6 +1,10 @@
 <?python
 from plone import api
 portal = api.portal.get()
+isAnon = api.user.is_anonymous()
+if not isAnon:
+    user = api.user.get_current()
+    userName = portal['members'][user.id].title
 ?>
       <!--
 
@@ -31,7 +35,16 @@ portal = api.portal.get()
               <ul class="social-btns">
                 <li><a href=""><i class="fa fa-facebook"></i></a></li>
                 <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="javascript: void(0)"><i class="fa fa-linkedin"></i></a></li>
+                <li tal:condition="not:isAnon"><a tal:attributes="href string:${portal/absolute_url}/@@account_info;
+                                       title string:您好 ${userName},點此進入個人設定">
+                      <i class="fa fa-user"></i>
+                    </a>
+                </li>
+                <li tal:condition="not:isAnon"><a tal:attributes="href string:${portal/absolute_url}/logout"
+                       title="登出">
+                      <i class="fa fa-sign-out"></i>
+                    </a>
+                </li>
                 <li><a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm">
                       <i class="fa fa-shopping-cart"></i>({{ cart_items }})
                     </a>
