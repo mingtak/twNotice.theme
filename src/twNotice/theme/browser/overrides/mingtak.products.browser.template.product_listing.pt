@@ -1,0 +1,132 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    xmlns:v-on="http://vuejs.org"
+    lang="en"
+    metal:use-macro="context/main_template/macros/master"
+    i18n:domain="mingtak.products">
+<body>
+
+
+<metal:content-core fill-slot="content-core">
+<metal:content-core define-macro="content-core"
+                    tal:define="toc context/table_of_contents|nothing;">
+
+<?python
+from plone import api
+brain = api.content.find(Type='Product')
+categories = ['美白美妝', '養身保健', '公司團購']
+?>
+
+<section class="content">
+      <metal:macro use-macro="context/@@theme_macro/macros/adv_search" />
+      <!--
+
+      Main Content start
+
+      //-->
+      <section class="envor-section envor-single-product">
+        <div class="container">
+          <div class="row">
+            <!--
+            Content Section start
+            //-->
+            <div class="col-lg-9">
+
+
+
+              <p class="block-description">說明文字.</p>
+              <p>長說明文字</p>
+              <div class="envor-sorting" id="estate-sorting">
+                <!--
+                Filters
+                //-->
+                <div class="envor-sorting-filters">
+                  <span tal:repeat="item categories" tal:attributes="data-value item" tal:content="item">Category</span>
+                </div>
+                <!--
+
+                Items To Sort start
+
+                //-->
+                <div class="row">
+                  <div class="col-lg-12">
+                  <div class="envor-projects-listing envor-projects-listing-3-cols">
+
+
+                    <!--
+                    Featured Houses Item start
+                    //-->
+                    <article tal:repeat="item brain"
+                             tal:attributes="class python:'envor-property-1 envor-padding-left-30 envor-padding-bottom-30 envor-sorting-item envor-listing-item %s' % ' '.join(item.Subject)">
+                      <div class="envor-property-1-inner">
+                        <span>$<span tal:replace="item/salePrice"/></span>
+                        <figure><a href="javascript: void(0)">
+                          <img tal:attributes="src string:${item/getURL}/@@images/image_1/mini.png; alt item/Title"></a>
+                          <figcaption><a tal:attributes="href string:${item/getURL}/@@images/image_1/zoomin.png" class="colorbox">
+                            <i class="fa fa-search"></i></a>
+                          </figcaption>
+                        </figure>
+                        <p class="title"><a tal:attributes="href item/getURL" tal:content="item/Title">Title</a></p>
+                        <p class="type"><span tal:content="python:' / '.join(item.Subject)">Subject</span></p>
+                        <p tal:content="item/Description">Proin malesuada, diam nec...</p>
+                        <p>
+                          <a href="javascript:void(0)" class="btn btn-warning btn-small" v-on:click="updateCart('plus', '${item/UID}')">放入購物車</a>
+                          <a tal:attributes="href item/getURL" class="btn btn-info btn-small">了解更多</a>
+                        </p>
+                      </div>
+                    <!--
+                    Featured Houses Item end
+                    //-->
+                    </article>
+
+
+                </div>
+              </div>
+            <!--
+
+            Items To Sort end
+
+            //-->
+            </div>
+            <!--
+
+            pagination start
+
+            //-->
+<!--            <div class="envor-pagination">
+              <span class="page-numbers current">1</span>
+              <a class="page-numbers" href="">2</a>
+              <a class="page-numbers" href="">3</a>
+              <a class="next page-numbers" href="">Next &raquo;</a>
+            </div> -->
+            </div>
+
+
+
+            </div>
+
+            <div class="col-lg-3">
+<!-- 插入 portlet (左) -->
+              <tal:block replace="structure provider:plone.leftcolumn" />
+            </div>
+
+          </div>
+        </div>
+      <!--
+
+      Main Content start
+
+      //-->
+      </section>
+      <metal:macro use-macro="context/@@theme_macro/macros/call_to_action_1" />
+
+</section>
+
+
+</metal:content-core>
+</metal:content-core>
+
+</body>
+</html>
