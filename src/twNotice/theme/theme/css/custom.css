@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
-.envor-product-1 figure img {
+.envor-product-1 figure img, .envor-property-1-inner figure img{
     float: initial;
     display: block;
     margin: auto;
