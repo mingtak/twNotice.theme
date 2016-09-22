@@ -32,7 +32,7 @@
             <div class="col-lg-3 col-md-3 col-sm-6">
               <p class="elabel">單位名稱:</p>
               <div class="envor-estate-form-item">
-                <input type="text" name="org_name" placeholder="如 行政院...">
+                <input type="text" name="org_name" placeholder="至少輸入3個字如 臺北市">
               </div>
             </div>
             <!--
@@ -157,45 +157,48 @@ portal = api.portal.get()
   </metal:row>
 
 
-
   <metal:row define-macro="pages">
-              <div class="pager" style="float:right">
+              <div class=" envor-pagination" style="float:right">
                 <div class="pages" style="float:right"
                      tal:condition="python:len(brain)>pageItems">
 
-                  <label class="pages" style="vertical-align:40%; font-size:1.2em; margin-right:10px">頁數:</label>
 
-                  <ul class="pagination">
-<!-- 上一頁 -->
-                    <li tal:condition="python:s > 0">
-                      <a tal:attributes="href python:'%s?key=%s&s:int=%s&t=%s' %
-                         (request.getURL(), request.form.get('key'), (0 if s-pageItems<0 else s-pageItems), request.get('t'))">&laquo;</a>
-                    </li>
+<!-- 第一頁 -->
+                    <tal:a tal:condition="python:s > 0">
+                      <a class="page-numbers prev" 
+                         tal:attributes="href python:'%s?keyword=%s&org_name=%s&min_budget=%s&max_budget=%s&date_range=%s' % \
+                         (request.getURL(), request.form.get('keyword'), request.form.get('org_name'),
+                          request.form.get('min_budget'), request.form.get('max_budget'), request.form.get('date_range'))">&laquo; 第一頁</a>
+                    </tal:a>
 <!-- 往前頁數-->
-                    <li tal:repeat="pagenumber python:range(s/pageItems)">
-                      <a tal:content="python:pagenumber + 1"
-                         tal:attributes="href python:'%s?key=%s&s:int=%s' %
-                         (request.getURL(), request.form.get('key'), (pagenumber*pageItems))">1</a>
-                    </li>
+                    <tal:a tal:repeat="pagenumber python:range(s/pageItems)">
+                      <a class="page-numbers" tal:content="python:pagenumber + 1"
+                         tal:attributes="href python:'%s?keyword=%s&org_name=%s&min_budget=%s&max_budget=%s&date_range=%s&s:int=%s' % \
+                         (request.getURL(), request.form.get('keyword'), request.form.get('org_name'),
+                          request.form.get('min_budget'), request.form.get('max_budget'), request.form.get('date_range'),
+                          (pagenumber*pageItems))">1</a>
+                    </tal:a>
 <!-- Current page -->
-                    <li class="active"
-                        tal:condition="python:s>=0">
-                      <a href="#" tal:content="python:s/pageItems + 1">3</a>
-                    </li>
+                    <tal:a condition="python:s>=0">
+                      <span class="page-numbers current" tal:content="python:s/pageItems + 1">3</span>
+                    </tal:a>
 <!-- 往後頁數 -->
     <tal:check condition="python:(len(brain)/pageItems) > (s/pageItems +1)">
-                    <li tal:repeat="pagenumber python:range((s/pageItems +2), 1+len(brain)/pageItems)">
-                      <a tal:content="pagenumber"
-                         tal:attributes="href python:'%s?key=%s&s:int=%s' %
-                         (request.getURL(), request.form.get('key'), (pagenumber-1)*pageItems)"/>
-                    </li>
+                    <tal:a tal:repeat="pagenumber python:range((s/pageItems +2), 1+len(brain)/pageItems)">
+                      <a class="page-numbers" tal:content="pagenumber"
+                         tal:attributes="href python:'%s?keyword=%s&org_name=%s&min_budget=%s&max_budget=%s&date_range=%s&s:int=%s' % \
+                         (request.getURL(), request.form.get('keyword'), request.form.get('org_name'),
+                          request.form.get('min_budget'), request.form.get('max_budget'), request.form.get('date_range'),
+                          (pagenumber-1)*pageItems)"/>
+                    </tal:a>
     </tal:check>
 <!-- Link to last -->
-                    <li tal:condition="python:s+pageItems<len(brain)">
-                      <a tal:attributes="href python:'%s?key=%s&s:int=%s&t=%s' %
-                         (request.getURL(), request.form.get('key'), s+pageItems, request.get('t'))">&raquo;</a>
-                    </li>
-                  </ul>
+                    <tal:a tal:condition="python:s+pageItems<len(brain)">
+                      <a class="page-numbers next" tal:attributes="href python:'%s?keyword=%s&org_name=%s&min_budget=%s&max_budget=%s&date_range=%s&s:int=%s' % \
+                         (request.getURL(), request.form.get('keyword'), request.form.get('org_name'),
+                          request.form.get('min_budget'), request.form.get('max_budget'), request.form.get('date_range'),
+                          len(brain)-pageItems)">最後一頁 »</a>
+                    </tal:a>
                 </div>
               </div>
   </metal:row>
