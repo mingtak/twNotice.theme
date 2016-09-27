@@ -64,8 +64,8 @@
     <input class="input-text password-widget required password-field" id="form-widgets-password_ctl" name="form.widgets.password_ctl" type="password"/>
    </div>
    <!-- Secondary fieldsets -->
-   <div class="formControls">
-    <input class="submit-widget button-field button btn btn-continue" id="form-buttons-register" name="form.buttons.register" type="submit" value="註冊" style="background:#6a2" />
+   <div class="formControls pull-left">
+    <input class="pull-left submit-widget button-field button btn btn-continue" id="form-buttons-register" name="form.buttons.register" type="submit" value="註冊" style="background:#6a2" />
    </div>
    <span tal:replace="structure context/@@authenticator/authenticator">
    </span>

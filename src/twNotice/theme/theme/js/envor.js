@@ -12,11 +12,11 @@
 	$(window).scroll(function () {
 		if ($(this).scrollTop() > 40) {
 			$('#to-the-top').fadeIn();
-			$('#envor-header-menu').addClass('envor-header-sticked');
-			$('.envor-content').css('padding-top', $('#envor-header-menu').height() + 'px');
+			$('.envor-header').addClass('envor-header-sticked');
+			$('.envor-content').css('padding-top', $('.envor-header').height() + 'px');
 		} else {
 			$('#to-the-top').fadeOut();
-			$('#envor-header-menu').removeClass('envor-header-sticked');
+			$('.envor-header').removeClass('envor-header-sticked');
 			$('.envor-content').css('padding-top', 0);
 		}
 	});
@@ -547,7 +547,8 @@
 		}
 		$(this).toggleClass('clicked');
 	});
-	$('#envor-mobile-cart-btn').click(function() {
+// 先不使用，直接 link to checkout_confirm
+	$('#envor-mobile-cart-btn__').click(function() {
 		if (isMobileMenuShown) {
 			$('#envor-mobile-cart').animate({
 				'right':'0px'

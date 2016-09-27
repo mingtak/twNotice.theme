@@ -1,5 +1,13 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+form label.horizontal {
+    width:100%;
+}
+
+form label.horizontal span {
+    float: inherit;
+}
+
 .envor-product-1 figure img, .envor-property-1-inner figure img{
     float: initial;
     display: block;

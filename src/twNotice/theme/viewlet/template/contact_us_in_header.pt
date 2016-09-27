@@ -45,10 +45,43 @@ if not isAnon:
                       <i class="fa fa-sign-out"></i>
                     </a>
                 </li>
-                <li><a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm">
+
+<!--                <li><a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm">
                       <i class="fa fa-shopping-cart"></i>({{ cart_items }})
                     </a>
                 </li>
+-->
+
+              <!--
+
+              Shopping cart start
+
+              //-->
+              <div class="shopping-cart">
+                <span><i class="fa fa-shopping-cart">({{ cart_items }})</i></span>
+                <div class="cart">
+                  <p class="title" i18n:translate="">shopping cart</p>
+                  <div class="cart-entry" id="topbarcart">
+                    <p tal:repeat="item view/getCartItems">
+                      <img tal:attributes="src string:${item/getURL}/@@images/image_1/icon" class="pull-right" />
+                      <a tal:attributes="href item/getURL" tal:content="item/Title">product title</a>
+                      x <span tal:replace="python:view.itemInCart[item.UID]"/>
+                      <span class="price">$<span tal:replace="python:view.itemInCart[item.UID]*item.salePrice" /></span>
+                    </p>
+                  </div>
+                  <p class="cart-btns">
+                    <a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm"
+                       class="envor-btn envor-btn-small envor-btn-primary">view cart(and Modify)</a>
+                  </p>
+                </div>
+              <!--
+
+              Shopping cart end
+
+              //-->
+              </div>
+
+
               <!--
 
               Social Buttons end

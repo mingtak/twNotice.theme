@@ -86,73 +86,96 @@ portal = api.portal.get()
               </div>
             </div>
 
-<ul class="e-color-list"
-    tal:define="noticeInfo python:[['單位資訊', '機關名稱', '單位名稱', '機關地址', '聯絡人', '聯絡電話', '傳真號碼', '電子郵件信箱'],
- ['標案資訊', '公告日', '標案案號', '標案名稱', '預算金額', '招標方式', '決標方式', '新增公告傳輸次數', '招標狀態'],
- ['投標資訊', '截止投標', '收受投標文件地點', '開標時間', '開標地點', '是否須繳納押標金', '廠商資格摘要', '是否訂有與履約能力有關之基本資格', '是否訂有與履約能力有關之特定資格'],
- ['投標結果', '投標廠商家數', '決標金額', '得標廠商'],]">
+  <ul class="e-color-list"
+      tal:define="info python:['標案資訊', '公告日', '標案案號', '標案名稱', '預算金額', '招標方式', '決標方式', '新增公告傳輸次數', '招標狀態']">
 
-
-  <tal:notice repeat="info noticeInfo">
     <h3 tal:content="python:info[0]" />
+    <tal:repeat repeat="item python:info[1:]">
+        <li tal:condition="python:context.noticeMeta.get(safe_unicode(item))" class="notice_info">
+            <strong><i class="glyphicon glyphicon-check"/> <span tal:replace="item"/></strong>:
+            <tal:switch switch="python:item">
+              <tal:a case="python:'機關名稱'">
+                <tal:org define="orgBrain view/get_org">
+                  <a tal:condition="orgBrain" tal:attributes="href python:orgBrain.getURL()">
+                    <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                  </a>
+                  <span tal:condition="not:orgBrain" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                </tal:org>
+              </tal:a>
+              <span tal:case="default" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+            </tal:switch>
+        </li>
+    </tal:repeat>
 
-<tal:repeat repeat="item python:info[1:]">
-    <li tal:condition="python:context.noticeMeta.get(safe_unicode(item))" class="notice_info">
-        <strong><i class="glyphicon glyphicon-check"/> <span tal:replace="item"/></strong>:
-        <tal:switch switch="python:item">
-          <tal:a case="python:'機關名稱'">
-            <tal:org define="orgBrain view/get_org">
-              <a tal:condition="orgBrain" tal:attributes="href python:orgBrain.getURL()">
-                <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
-              </a>
-              <span tal:condition="not:orgBrain" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
-            </tal:org>
-          </tal:a>
-          <tal:a case="python:'得標廠商'">
-              <a tal:attributes="href python:'%s/@@bidder_info?bidder=%s' % (portal.absolute_url(), context.noticeMeta.get(safe_unicode(item)))">
-                <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
-              </a>
-          </tal:a>
-
-          <span tal:case="default" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
-        </tal:switch>
-    </li>
-</tal:repeat>
-
-    <li tal:condition="python:info[0] == '標案資訊'" class="notice_info">
-      <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Related CPC</span></strong>:
-      <a tal:attributes="href context/cpc/to_object/absolute_url"
-        tal:content="context/cpc/to_object/title"/>
-    </li>
-
-    <li tal:condition="python:info[0] == '標案資訊'" class="notice_info">
-      <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Notice URL</span></strong>:
-      <a tal:attributes="href context/noticeURL"
-        tal:content="context/noticeURL" target="_blank"/>
-    </li>
-
-    <hr>
-  </tal:notice>
+        <li class="notice_info">
+          <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Related CPC</span></strong>:
+          <a tal:attributes="href context/cpc/to_object/absolute_url"
+            tal:content="context/cpc/to_object/title"/>
+        </li>
+        <li class="notice_info">
+          <strong><i class="glyphicon glyphicon-check"/> <span i18n:translate="">Notice URL</span></strong>:
+          <a tal:attributes="href context/noticeURL" target="_blank" i18n:translate="">Go!!</a>
+        </li>
 
 
+  </ul>
+  <hr>
 
 
-    <h3>標案追蹤</h3>
+<div class="envor-tabs"
+     tal:define="noticeInfo python:[['單位資訊', '機關名稱', '單位名稱', '機關地址', '聯絡人', '聯絡電話', '傳真號碼', '電子郵件信箱'],
+                                    ['投標資訊', '截止投標', '收受投標文件地點', '開標時間', '開標地點', '是否須繳納押標金', '廠商資格摘要', '是否訂有與履約能力有關之基本資格', '是否訂有與履約能力有關之特定資格'],
+                                    ['投標結果', '投標廠商家數', '決標金額', '得標廠商'],]">
+    <header>
+        <span tal:repeat="info noticeInfo"
+              tal:content="python:info[0]">Tab Title</span>
+        <span>標案追蹤</span>
+    </header>
 
-<tal:repeat repeat="item view/get_related">
-<li class="notice_info">
- <strong><i class="fa fa-location-arrow"/>
-   <span tal:replace="python:'%s年%s月%s日: ' % (item.dateString[0:4], item.dateString[4:6], item.dateString[6:8])" />
- </strong>
- <a tal:attributes="href item/getURL" tal:content="item/noticeType"/>
-</li>
-</tal:repeat>
+    <article tal:repeat="info noticeInfo">
+
+    <ul class="e-color-list">
+        <tal:repeat repeat="item python:info[1:]">
+            <li tal:condition="python:context.noticeMeta.get(safe_unicode(item))" class="notice_info">
+                <strong><i class="glyphicon glyphicon-check"/> <span tal:replace="item"/></strong>:
+                <tal:switch switch="python:item">
+                  <tal:a case="python:'機關名稱'">
+                    <tal:org define="orgBrain view/get_org">
+                      <a tal:condition="orgBrain" tal:attributes="href python:orgBrain.getURL()">
+                        <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                      </a>
+                      <span tal:condition="not:orgBrain" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                    </tal:org>
+                  </tal:a>
+
+                  <tal:a case="python:'得標廠商'">
+                      <a tal:attributes="href python:'%s/@@bidder_info?bidder=%s' % (portal.absolute_url(), context.noticeMeta.get(safe_unicode(item)))">
+                        <span tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                      </a>
+                  </tal:a>
+                  <span tal:case="default" tal:replace="structure python:context.noticeMeta.get(safe_unicode(item))"/>
+                </tal:switch>
+            </li>
+        </tal:repeat>
+    </ul>
+
+    </article>
+
+    <article>
+        <tal:repeat repeat="item view/get_related">
+            <li class="notice_info">
+              <strong><i class="fa fa-location-arrow"/>
+                  <span tal:replace="python:'%s年%s月%s日: ' % (item.dateString[0:4], item.dateString[4:6], item.dateString[6:8])" />
+              </strong>
+              <a tal:attributes="href item/getURL" tal:content="item/noticeType"/>
+            </li>
+        </tal:repeat>
+    </article>
+</div>
 
 
 
 
-
-</ul>
 
 
             </div>

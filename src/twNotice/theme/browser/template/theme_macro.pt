@@ -90,12 +90,13 @@
 <?python
 from plone import api
 portal = api.portal.get()
+anon = api.user.is_anonymous()
 ?>
 
       <!--
       Call To Action start
       //-->
-      <section class="envor-section envor-section-st1 envor-section-align-center">
+      <section class="envor-section envor-section-st1 envor-section-align-center" tal:condition="anon">
         <div class="container">
           <div class="row">
             <div class="col-lg-12">
