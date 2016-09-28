@@ -1,19 +1,106 @@
 <tal:block condition="view/show"
            i18n:domain="twNotice.theme">
 
-<section class="portlet portletLogin"  role="section"
-    tal:condition="view/available">
+<tal:section tal:condition="view/available">
 
 
+<h3>        <a href="#"
+           class="tile"
+           tal:attributes="href view/login_form"
+           i18n:translate="box_sign_in">Log in</a>
+</h3>
 
+    <div tal:define="ac_name view/login_name;
+                     ac_password view/login_password">
+        <form action="login_form"
+              id="loginform"
+              method="post"
+              tal:attributes="action view/login_form">
+
+            <div>
+                <input type="hidden" name="form.submitted" value="1" />
+                <input type="hidden" name="came_from" value=""
+                       tal:attributes="value context/@@plone_context_state/current_page_url" />
+                <input type="hidden" name="js_enabled" id="js_enabled" value="0" />
+                <input type="hidden" name="cookies_enabled" id="cookies_enabled" value="" />
+                <input type="hidden" name="login_name" id="login_name" value="" />
+                <input type="hidden" name="pwd_empty" id="pwd_empty" value="0" />
+            </div>
+
+            <div class="field"
+                 tal:define="use_email_as_login python:context.portal_registry['plone.use_email_as_login'];">
+
+              <tal:loginname condition="not:use_email_as_login">
+                <input type="text"
+                       size="10"
+                       alt="Login Name"
+                       placeholder="Login Name"
+                       tal:attributes="name ac_name; id ac_name;
+                                       value python:request.get(ac_name, '');"
+                       i18n:attributes="alt label_login_name; placeholder"/>
+              </tal:loginname>
+              <tal:email condition="use_email_as_login">
+                <input type="text"
+                       size="10"
+                       alt="E-mail"
+                       placeholder="E-mail"
+                       tal:attributes="name ac_name; id ac_name;
+                                       value python:request.get(ac_name, '');"
+                       i18n:attributes="alt label_email; placeholder"/>
+              </tal:email>
+            </div>
+
+            <div class="field" style="padding-top:40px">
+                <input type="password"
+                       size="10"
+                       alt="Password"
+                       placeholder="Password"
+                       tal:attributes="name ac_password; id ac_password;"
+                       i18n:attributes="alt label_password; placeholder"/>
+            </div>
+
+            <div class="cookiesMessage portalMessage warning"
+                 style="display:none" role="alert">
+                <strong i18n:translate="">
+                  Warning
+                </strong>
+                <span i18n:translate="enable_cookies_message_before_login">
+                  Cookies are not enabled. You must enable cookies before you
+                  can log in.
+                </span>
+            </div>
+
+            <div class="formControls">
+
+                <input class="context btn btn-small btn-info"
+                       type="submit"
+                       name="submit"
+                       value="Log in"
+                       alt="Log in"
+                       i18n:attributes="value label_log_in; alt label_log_in;"/>
+            </div>
+        </form>
+      </div>
+<hr>
+<div>
+<h4>快速登入 / 註冊帳號</h4>
 <p>
-  <img class="image-inline" title="臉書登入" src="resolveuid/bd87179db5894941b4f55db8ae3210df/@@images/image/icon" alt="" data-linktype="image" data-scale="icon" data-val="bd87179db5894941b4f55db8ae3210df" />
-  <img class="image-inline" title="Google登入" src="resolveuid/da3825565e5a4cf88448bdd2d3393036/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="da3825565e5a4cf88448bdd2d3393036" />
-  <img class="image-inline" title="帳號登入" src="resolveuid/a55f725c90c34e688ed735ea0de20168/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="a55f725c90c34e688ed735ea0de20168" />
-  <img class="image-inline" title="註冊帳號" src="resolveuid/40bb6ef24dee40149693ff659044a721/@@images/image/icon" alt="" data-linktype="image" data-scale="tile" data-val="40bb6ef24dee40149693ff659044a721" />
+  <a tal:attributes="href string:${root/absolute_url}/@@facebookLogin">
+    <img class="image-inline" title="臉書登入"
+         tal:attributes="src string:${root/absolute_url}/resource/images/button_facebook.png/@@images/image/login.png" alt="臉書登入" />
+  </a>
+  <a tal:attributes="href string:${root/absolute_url}/@@googleLogin">
+    <img class="image-inline" title="Google登入"
+         tal:attributes="src string:${root/absolute_url}/resource/images/button_google.png/@@images/image/login.png" alt="Google登入" />
+  </a>
+  <a class="asjx cboxElement" tal:attributes="href string:${root/absolute_url}/@@join_us">
+    <img class="image-inline" title="註冊帳號"
+         tal:attributes="src string:${root/absolute_url}/resource/images/button_reg.png/@@images/image/login.png" alt="註冊帳號"/>
+  </a>
 </p>
+</div>
 
+</tal:section>
 
-</section>
 
 </tal:block>
