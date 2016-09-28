@@ -12,12 +12,6 @@
 <metal:content-core define-macro="content-core"
                     tal:define="toc context/table_of_contents|nothing;">
 
-<?python
-from plone import api
-portal = api.portal.get()
-?>
-
-
 <section class="content">
 
 
@@ -42,6 +36,8 @@ portal = api.portal.get()
 
             //-->
             <div class="col-lg-9">
+
+  <h3 tal:content="context/title"></h3>
 
   <div id="parent-fieldname-text"
       tal:condition="context/text"
