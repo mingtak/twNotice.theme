@@ -29,8 +29,52 @@
             //-->
             <div class="col-lg-9">
 
+<?python
+from Products.CMFPlone.utils import safe_unicode
+from plone import api
+portal = api.portal.get()
+?>
 
-today_notice.pt
+
+  <tal:getChildNodes define="brain view/result;
+                             pageItems python:10;
+                             pageAmount python:int(len(brain)/pageItems) + 1;
+                             s python:view.request.form.get('s', 0)">
+
+              <a tal:attributes="href string:${portal/absolute_url}/@@account_info" class="btn btn-info btn-small pull-right">修改設定</a>
+              <h2 class="blog-cat">您的關鍵字設定:</h2>
+              <h4 tal:content="python:' / '.join(view.profile.traceKeywords)"></h4>
+              <h3>最近24小時內符合的公告如下:</h3>
+
+<div class="row">
+
+              <metal:macro use-macro="context/@@theme_macro/macros/pages" />
+
+              <article class="envor-post" tal:repeat="item python:brain[s:s+10]">
+                <header>
+                  <h3><!-- <i class="fa fa-pencil"></i> --><a tal:attributes="href item/getURL" tal:content="item/Title">Title</a></h3>
+                  <p><strong>機關名稱:</strong> <span tal:replace="python:item.getObject().noticeMeta.get(safe_unicode('機關名稱'))" />
+                     <strong>預算金額:</strong> <span tal:replace="python:item.getObject().noticeMeta.get(safe_unicode('預算金額'))" />
+                  </p>
+                </header>
+                <div class="date" title="載止投標"
+                     tal:define="deadline python:item.getObject().noticeMeta.get(safe_unicode('截止投標'));"
+                     tal:condition="deadline">
+                  <span class="day" tal:content="python:deadline.split()[0].split('/')[2]">24</span>
+                  <span class="month" tal:content="python:'%s年%s月' % (int(deadline.split()[0].split('/')[0]),
+                                                                        int(deadline.split()[0].split('/')[1]))">dec, 13</span>
+                </div>
+              </article>
+</div>
+              <metal:macro use-macro="context/@@theme_macro/macros/pages" />
+
+</tal:getChildNodes>
+
+
+
+
+
+
 
 
 
