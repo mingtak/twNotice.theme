@@ -20,6 +20,9 @@ if not isAnon:
               Contact information start
 
               //-->
+              <p class="contacts" tal:condition="not:isAnon"><i class="fa fa-thumbs-up"></i>Hi,
+                <a tal:attributes="href string:${root/absolute_url}/@@account_info"><span tal:replace="userName" /></a>
+              </p>
               <p class="contacts"><i class="fa fa-phone"></i> 02-2897-3942</p>
               <p class="contacts"><i class="fa fa-envelope"></i> <a href="">service@opptoday.com</a></p>
               <!--
@@ -35,18 +38,18 @@ if not isAnon:
               <ul class="social-btns">
                 <li><a href=""><i class="fa fa-facebook"></i></a></li>
                 <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                <li tal:condition="not:isAnon"><a tal:attributes="href string:${portal/absolute_url}/@@account_info;
+                <li tal:condition="not:isAnon"><a tal:attributes="href string:${root/absolute_url}/@@account_info;
                                        title string:您好 ${userName},點此進入個人設定">
                       <i class="fa fa-user"></i>
                     </a>
                 </li>
-                <li tal:condition="not:isAnon"><a tal:attributes="href string:${portal/absolute_url}/logout"
+                <li tal:condition="not:isAnon"><a tal:attributes="href string:${root/absolute_url}/logout"
                        title="登出">
                       <i class="fa fa-sign-out"></i>
                     </a>
                 </li>
 
-<!--                <li><a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm">
+<!--                <li><a tal:attributes="href string:${root/absolute_url}/@@checkout_confirm">
                       <i class="fa fa-shopping-cart"></i>({{ cart_items }})
                     </a>
                 </li>
@@ -70,7 +73,7 @@ if not isAnon:
                     </p>
                   </div>
                   <p class="cart-btns">
-                    <a tal:attributes="href string:${portal/absolute_url}/@@checkout_confirm"
+                    <a tal:attributes="href string:${root/absolute_url}/@@checkout_confirm"
                        class="envor-btn envor-btn-small envor-btn-primary">view cart(and Modify)</a>
                   </p>
                 </div>

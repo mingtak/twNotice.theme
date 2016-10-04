@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+p.contacts {
+    color:#ccc;
+}
+
 form label.horizontal {
     width:100%;
 }
