@@ -1,5 +1,20 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+.envor-property-1 p.title {
+    margin-bottom: initial;
+    min-height: initial;
+}
+
+div#parent-fieldname-text a {
+    color:blue;
+}
+
+div#parent-fieldname-text {
+    margin-top: 35px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
 p.contacts {
     color:#ccc;
 }

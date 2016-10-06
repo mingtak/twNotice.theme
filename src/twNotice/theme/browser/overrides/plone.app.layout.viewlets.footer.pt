@@ -16,10 +16,11 @@
               <h3><img src="http://www.opptoday.com/@@site-logo/logo5_2.png" style="max-height:45px"/></h3>
               <div class="envor-widget-inner">
                 <div class="quick_newsletter">
-                  <form action="../../php/process.php">
+<img tal:attributes="src string:${root/absolute_url}/resource/images/logo200x120.png/@@images/image/thumb; alt root/title" />
+<!--                  <form action="../../php/process.php">
                     <input name="email" id="email" value="email" class="text" onblur="_hint(this,'email',1)" onclick="_hint(this,'email',0)" type="text">
                     <input name="submit" value="Subscribe me!" class="envor-btn envor-btn-primary envor-btn-normal" onclick="doSubscribe(this,'#subscribe_response_div');" type="button">
-                  </form>
+                  </form> -->
                 </div>
                 <span id="subscribe_response_div"></span>
               </div>

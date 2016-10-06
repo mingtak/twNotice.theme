@@ -36,8 +36,8 @@ categories = ['美白美妝', '養身保健', '公司團購']
 
 
 
-              <p class="block-description">說明文字.</p>
-              <p>長說明文字</p>
+              <p class="block-description">賣場</p>
+              <p>忙於拚經濟的同時，別忘了愛自己一下，放輕鬆，看看我們為您精選的商品.</p>
               <div class="envor-sorting" id="estate-sorting">
                 <!--
                 Filters
