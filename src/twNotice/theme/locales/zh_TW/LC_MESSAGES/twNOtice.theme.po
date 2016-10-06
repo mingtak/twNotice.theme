@@ -41,7 +41,7 @@ msgstr "警告"
 #. Default: "Log in"
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:7
 msgid "box_sign_in"
-msgstr ""
+msgstr "登入"
 
 #. Default: "Cookies are not enabled. You must enable cookies before you can log in."
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:67
