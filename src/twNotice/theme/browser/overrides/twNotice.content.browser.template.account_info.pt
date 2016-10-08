@@ -41,6 +41,7 @@ from Products.CMFPlone.utils import safe_unicode
 <form action="/update_account_info" method="post" name="account_info">
                   <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
                          tal:attributes="value view/currentId">
+                  <input style="display:none" class="accountinfo input-text" name="modbasic" value="modbasic" type="hidden" autocomplete="off">
 
                   <table class="data-table accountinfo table">
                     
@@ -121,6 +122,7 @@ from Products.CMFPlone.utils import safe_unicode
 <form action="/update_account_info" method="post" name="account_info">
                   <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
                          tal:attributes="value view/currentId">
+                  <input style="display:none" class="accountinfo input-text" name="modkeyword" value="modkeyword" type="hidden" autocomplete="off">
 
 
                   <input class="input-checkbox" name="subscribe" value="1" type="checkbox"
@@ -131,8 +133,8 @@ from Products.CMFPlone.utils import safe_unicode
                     <tbody id="keyword_seting_section" tal:define="keywords python:view.myProfile().traceKeywords">
                       <tr tal:condition="not:keywords">
                         <td>
-                          <input class="accountinfo input-text" name="keywrod" value="" type="text" autocomplete="on"
-                                 placeholder="請輸入要追蹤的關鍵字詞, 如「水電」" >
+                          <input class="accountinfo input-text" name="keyword" value="" type="text" autocomplete="on"
+                                 placeholder="輸入追蹤關鍵字詞, 如「水電」" >
                         </td>
 <td class="del_tr"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>
                       </tr>

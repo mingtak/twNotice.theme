@@ -25,7 +25,7 @@ $(document).on('click', '.add_field', function(event){
     newField.innerHTML = function(){/* 
         <td>  
             <input class="accountinfo input-text" name="keyword" value="" type="text" autocomplete="on"  
-                          placeholder="請輸入要追蹤的關鍵字詞, 如「水電」" >
+                          placeholder="輸入追蹤關鍵字詞, 如「水電」" >
         </td>
         <td class="del_tr"><i class="fa fa-trash-o fa-2x" aria-hidden="true"></i></td>*/}.toString().slice(14,-3); 
 
