@@ -1,5 +1,23 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+.product_detail {
+    font-size: 1.25em;
+}
+
+.product_detail p {
+    line-height: 25px;
+}
+
+.product_title {
+    font-size: 1.8em !important;
+    margin-top:30px !important;
+}
+
+.envor-footer .envor-widget li {
+    font-size: 1.2em;
+    margin-bottom:10px;
+}
+
 .envor-property-1 p.title {
     margin-bottom: initial;
     min-height: initial;

@@ -113,7 +113,7 @@ from Products.CMFPlone.utils import safe_unicode
 
 
 
-<div class="row">
+<div class="row" id="keywordsSetting">
            <div class="col-lg-4">
 <!-- Keyword 設定 -->
               <h3 i18n:translate="">Keyword Setting</h3>

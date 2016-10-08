@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-10-03 13:25+0000\n"
+"POT-Creation-Date: 2016-10-06 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,9 +14,17 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:86
+msgid "Brand:"
+msgstr "品牌:"
+
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:43
 msgid "E-mail"
 msgstr ""
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:85
+msgid "In Stock:"
+msgstr "庫存狀態:"
 
 #: ./configure.zcml:28
 msgid "Installs the twNotice.theme add-on."
@@ -29,6 +37,10 @@ msgstr "登入帳號"
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "Password"
 msgstr "密碼"
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:87
+msgid "Sipping Fee:"
+msgstr "運費:"
 
 #: ./configure.zcml:43
 msgid "Uninstalls the twNotice.theme add-on."
@@ -67,6 +79,10 @@ msgstr ""
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "label_password"
 msgstr ""
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:112
+msgid "product details"
+msgstr "商品說明"
 
 #: ./configure.zcml:28
 msgid "twNotice.theme"

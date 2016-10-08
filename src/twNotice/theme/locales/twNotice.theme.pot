@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-10-03 13:25+0000\n"
+"POT-Creation-Date: 2016-10-06 10:55+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,8 +17,16 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: twNotice.theme\n"
 
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:86
+msgid "Brand:"
+msgstr ""
+
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:43
 msgid "E-mail"
+msgstr ""
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:85
+msgid "In Stock:"
 msgstr ""
 
 #: ./configure.zcml:28
@@ -31,6 +39,10 @@ msgstr ""
 
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "Password"
+msgstr ""
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:87
+msgid "Sipping Fee:"
 msgstr ""
 
 #: ./configure.zcml:43
@@ -69,6 +81,10 @@ msgstr ""
 #. Default: "Password"
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "label_password"
+msgstr ""
+
+#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:112
+msgid "product details"
 msgstr ""
 
 #: ./configure.zcml:28

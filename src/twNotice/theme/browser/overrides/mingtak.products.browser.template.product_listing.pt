@@ -5,7 +5,7 @@
     xmlns:v-on="http://vuejs.org"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
-    i18n:domain="mingtak.products">
+    i18n:domain="twNotice.theme">
 <body>
 
 

@@ -1,3 +1,7 @@
+<?python
+from plone import api
+portal = api.portal.get()
+?>
     <!--
 
     Envor footer start
@@ -41,10 +45,10 @@
               <h3>網站 <strong>使用指南</strong></h3>
               <div class="envor-widget-inner">
 <ul style="padding:10px">
-<li>如何購買</li>
-<li>付款政策說明</li>
-<li>退貨政策</li>
-<li>客服信箱</li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/about">新手說明 </a></li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/how_to_buy">如何購買商品</a></li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/reback_policy">退/換貨政策</a></li>
+<li><a href="mailto:service@opptoday.com?subject='今日商機王客服信箱'">客服信箱</a></li>
 </ul>
               </div>
             </div>
@@ -64,10 +68,9 @@
               <h3>帳戶 <strong>資訊</strong></h3>
               <div class="envor-widget-inner">
 <ul style="padding:10px">
-<li>如何購買</li>
-<li>付款政策說明</li>
-<li>退貨政策</li>
-<li>客服信箱</li>
+<li><a tal:attributes="href string:${portal/absolute_url}/@@account_info">我的帳戶</a></li>
+<li><a tal:attributes="href string:${portal/absolute_url}/@@account_info#keywordsSetting">關鍵字設定</a></li>
+<li>歷史訂單</li>
 </ul>
               </div>
             </div>
@@ -87,10 +90,9 @@
               <h3>網站資訊</h3>
               <div class="envor-widget-inner">
 <ul style="padding:10px">
-<li>如何購買</li>
-<li>付款政策說明</li>
-<li>退貨政策</li>
-<li>客服信箱</li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/about">關於今日商機王</a></li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/privacy">隱私權政策</a></li>
+<li><a tal:attributes="href string:${portal/absolute_url}/resource/article/service_policy">服務條款</a></li>
 </ul>
 
               </div>

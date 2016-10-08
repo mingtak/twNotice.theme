@@ -5,7 +5,7 @@
     xmlns:v-on="http://www.vuejs.org"
     lang="en"
     metal:use-macro="context/main_template/macros/master"
-    i18n:domain="mingtak.products">
+    i18n:domain="twNotice.theme">
 <body>
 
 <metal:content-core fill-slot="content-core">
@@ -82,9 +82,9 @@ relatedItems = catalog(Type='Product')
                   <h3 tal:content="context/title">Laptop</h3>
                   <p class="price">$<span tal:replace="context/salePrice" /></p>
                   <ul class="product-options">
-                    <li><span i18n:translate="">In Stock:</span> <span tal:replace="context/inStock" /></li>
-                    <li><span i18n:translate="">Brand:</span> <span tal:replace="context/brand" /></li>
-                    <li><span i18n:translate="">Sipping Fee:</span> 全館免運費</li>
+                    <li><span>庫存庫態:</span> <span tal:replace="context/inStock" /></li>
+                    <li><span>品 牌:</span> <span tal:replace="context/brand" /></li>
+                    <li><span>運 費:</span> 全館免運費</li>
                   </ul>
                   <p tal:content="context/description" />
 <!--                  <p class="qty" id="prod-qty">Quantity: <i class="fa fa-plus"></i><span class="qty-fld">1</span><i class="fa fa-minus"></i></p>
@@ -109,8 +109,10 @@ relatedItems = catalog(Type='Product')
                 Product Details
                 //-->
                 <div class="col-lg-12">
-                  <h3 class="h3-2" i18n:translate="">product details</h3>
-                  <div tal:replace="structure context/promotionalText/raw"></div>
+                  <h3 class="h3-2 product_title">商品說明</h3>
+                  <div class="product_detail">
+                      <div tal:replace="structure context/promotionalText/raw"></div>
+                  </div>
                 </div>
               <!--
               Product end
