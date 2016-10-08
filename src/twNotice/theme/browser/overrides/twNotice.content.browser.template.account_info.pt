@@ -123,7 +123,7 @@ from Products.CMFPlone.utils import safe_unicode
                          tal:attributes="value view/currentId">
 
 
-                  <input class="input-checkbox" name="subscribe" value="" checked="false" type="checkbox"
+                  <input class="input-checkbox" name="subscribe" value="1" type="checkbox"
                          tal:attributes="checked python:view.myProfile().subscribe">
                       <span style="margin-left:10px;">是否接收每日公告/電子報</span>
 
