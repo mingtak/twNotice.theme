@@ -121,6 +121,12 @@ from Products.CMFPlone.utils import safe_unicode
 <form action="/update_account_info" method="post" name="account_info">
                   <input style="display:none" class="accountinfo input-text" name="currentid" value="" type="hidden" autocomplete="off"
                          tal:attributes="value view/currentId">
+
+
+                  <input class="input-checkbox" name="subscribe" value="" checked="false" type="checkbox"
+                         tal:attributes="checked python:view.myProfile().subscribe">
+                      <span style="margin-left:10px;">是否接收每日公告/電子報</span>
+
                   <table class="data-table accountinfo table">
                     <tbody id="keyword_seting_section" tal:define="keywords python:view.myProfile().traceKeywords">
                       <tr tal:condition="not:keywords">
