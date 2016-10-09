@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-10-06 10:55+0000\n"
+"POT-Creation-Date: 2016-10-09 00:19+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,33 +14,73 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
-#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:86
-msgid "Brand:"
-msgstr "品牌:"
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:37
+msgid "Account Information"
+msgstr "帳戶資訊"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:152
+msgid "Add Field"
+msgstr "增加一欄"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:99
+msgid "Address 1"
+msgstr "常用地址"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:79
+msgid "Cell Phone"
+msgstr "手機"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:112
+msgid "Confirm"
+msgstr "確認"
 
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:43
 msgid "E-mail"
 msgstr ""
 
-#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:85
-msgid "In Stock:"
-msgstr "庫存狀態:"
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:90
+msgid "Email"
+msgstr ""
 
 #: ./configure.zcml:28
 msgid "Installs the twNotice.theme add-on."
 msgstr ""
 
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:120
+msgid "Keyword Setting"
+msgstr "關鍵字設定"
+
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:34
 msgid "Login Name"
 msgstr "登入帳號"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:58
+msgid "Member Grade"
+msgstr "會員等級"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:50
+msgid "Name"
+msgstr "姓名"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:159
+msgid "Notice Trace"
+msgstr "標案追蹤"
 
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "Password"
 msgstr "密碼"
 
-#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:87
-msgid "Sipping Fee:"
-msgstr "運費:"
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:68
+msgid "Phone"
+msgstr "電話"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:81
+msgid "Please fill cell phone number, ex: 0912345678"
+msgstr "請填寫手機號碼,例 0912345678"
+
+#: ./browser/overrides/twNotice.content.browser.template.account_info.pt:70
+msgid "Please fill phone number include zip code, ex: 0223456789"
+msgstr "請填寫市話號碼包括區碼,例 0223456789"
 
 #: ./configure.zcml:43
 msgid "Uninstalls the twNotice.theme add-on."
@@ -79,10 +119,6 @@ msgstr ""
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "label_password"
 msgstr ""
-
-#: ./browser/overrides/mingtak.products.browser.template.product_view.pt:112
-msgid "product details"
-msgstr "商品說明"
 
 #: ./configure.zcml:28
 msgid "twNotice.theme"
