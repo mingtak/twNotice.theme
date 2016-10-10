@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-10-09 00:19+0000\n"
+"POT-Creation-Date: 2016-10-10 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,6 +45,10 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:117
+msgid "Go!!"
+msgstr ""
+
 #: ./configure.zcml:28
 msgid "Installs the twNotice.theme add-on."
 msgstr ""
@@ -69,6 +73,10 @@ msgstr ""
 msgid "Notice Trace"
 msgstr ""
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:116
+msgid "Notice URL"
+msgstr ""
+
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "Password"
 msgstr ""
@@ -85,8 +93,20 @@ msgstr ""
 msgid "Please fill phone number include zip code, ex: 0223456789"
 msgstr ""
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:111
+msgid "Related CPC"
+msgstr ""
+
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:41
+msgid "Trace Notice"
+msgstr ""
+
 #: ./configure.zcml:43
 msgid "Uninstalls the twNotice.theme add-on."
+msgstr ""
+
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:45
+msgid "Untrace Notice"
 msgstr ""
 
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:64

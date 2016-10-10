@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2016-10-09 00:19+0000\n"
+"POT-Creation-Date: 2016-10-10 09:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,6 +42,10 @@ msgstr ""
 msgid "Email"
 msgstr ""
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:117
+msgid "Go!!"
+msgstr "前往"
+
 #: ./configure.zcml:28
 msgid "Installs the twNotice.theme add-on."
 msgstr ""
@@ -66,6 +70,10 @@ msgstr "姓名"
 msgid "Notice Trace"
 msgstr "標案追蹤"
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:116
+msgid "Notice URL"
+msgstr "公告網址"
+
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:54
 msgid "Password"
 msgstr "密碼"
@@ -82,9 +90,21 @@ msgstr "請填寫手機號碼,例 0912345678"
 msgid "Please fill phone number include zip code, ex: 0223456789"
 msgstr "請填寫市話號碼包括區碼,例 0223456789"
 
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:111
+msgid "Related CPC"
+msgstr ""
+
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:41
+msgid "Trace Notice"
+msgstr "追蹤公告"
+
 #: ./configure.zcml:43
 msgid "Uninstalls the twNotice.theme add-on."
 msgstr ""
+
+#: ./browser/overrides/twNotice.content.browser.template.notice_view.pt:45
+msgid "Untrace Notice"
+msgstr "停止追蹤"
 
 #: ./browser/overrides/plone.app.portlets.portlets.login.pt:64
 msgid "Warning"
