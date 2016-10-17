@@ -1,5 +1,17 @@
 @import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
 
+@media (min-width:768px) and (max-width: 992px) {
+    article.envor-post.envor-post-masonry {
+        width:48%;
+    }
+}
+
+@media (max-width: 769px) {
+    article.envor-post.envor-post-masonry {
+        width:100%;
+    }
+}
+
 .product_detail {
     font-size: 1.25em;
 }
