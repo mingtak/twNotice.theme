@@ -15,7 +15,7 @@ portal = api.portal.get()
           Footer About Widget start
 
           //-->
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="envor-widget">
               <h3><img src="http://www.opptoday.com/@@site-logo/logo5_2.png" style="max-height:45px"/></h3>
               <div class="envor-widget-inner">
@@ -40,7 +40,7 @@ portal = api.portal.get()
           Footer News Widget start
 
           //-->
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="envor-widget">
               <h3>網站 <strong>使用指南</strong></h3>
               <div class="envor-widget-inner">
@@ -63,7 +63,7 @@ portal = api.portal.get()
           Footer Flickr Widget start
 
           //-->
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="envor-widget envor-flick-widget">
               <h3>帳戶 <strong>資訊</strong></h3>
               <div class="envor-widget-inner">
@@ -85,7 +85,7 @@ portal = api.portal.get()
           Footer Contacts Widget start
 
           //-->
-          <div class="col-lg-3 col-md-3">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
             <div class="envor-widget envor-contacts-widget">
               <h3>網站資訊</h3>
               <div class="envor-widget-inner">
