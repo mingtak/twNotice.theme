@@ -78,7 +78,7 @@ from Products.CMFPlone.utils import safe_unicode
                       <tr class="even">
                         <td i18n:translate="" class="fieldtitle">Cell Phone</td>
                         <td>
-                          <input class="accountinfo input-text" name="cellphone" value="" type="text" autocomplete="on"
+                          <input class="accountinfo input-text" name="cellPhone" value="" type="text" autocomplete="on"
                                  placeholder="Please fill cell phone number, ex: 0912345678"
                                  pattern="[0-9, -]{10,12}" title="Please fill cell phone number, ex: 0912345678"
                                  i18n:attributes="placeholder; title"
